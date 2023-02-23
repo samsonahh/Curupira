@@ -632,38 +632,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuests:
   - isActive: 0
-    title: Branch Collection
-    description: Collect 3 branches.
+    title: Introduction
+    description: Meet the Macaw Tribe Leader
     sentences:
-    - Hey!
-    - Can you help me?
-    - Please collect 3 branches and bring them to me!
+    - 'Hey there! I''m Ademir, leader of the Macaw Tribe. '
+    - 'Recently we have started to become more and more endangered. '
+    - Our habitat is being destroyed and climate change and wildlife trade is threatening
+      our home!
+    - Can you help us gather some materials to rebuild our home?
     goal:
       goalType: 1
       requiredAmount: 3
       currentAmount: 0
   - isActive: 0
-    title: Branch Collection
-    description: Collect 3 branches
+    title: Collect the Tool!
+    description: Collect all the branches
     sentences:
-    - Thanks for 3 branches.
-    - I thought I told you to collect more though.
-    - Can you please collect 3 more?
+    - 'Around the forest are fallen branches. '
+    - Find and collec the branches and bring them back to the tree.
+    - Click "E" to collect the branch
+    - Bring the branch back to the tree!
+    - 'Thank you for the branch! There are still other branches around the forest. '
+    - 'Collect as many as you can! You can hold onto two branches at a time to bring
+      back to me. '
+    - You're halfway there! Be careful though, some of these branches are located
+      in tricky places!
+    - 'Thank you so much for your help! However, you cannot go on yet. I have one
+      last task for you! '
     goal:
       goalType: 1
       requiredAmount: 3
       currentAmount: 0
   - isActive: 0
-    title: Time to Give a Dam
-    description: Take down the dam by tricking the beaver.
+    title: Where is the Food?!
+    description: Find and collect food and material
     sentences:
-    - Thanks for all those branches!
-    - Our river is blocked because of the dam.
-    - That dam beaver is stopping us from taking it down.
-    - Please help us by destroying the dam.
+    - Food is located around the forest, but some are poisonous frmo chemicals released
+      into the air!
+    - When you find a food, you must check if it is poisonous or not!
+    - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
+    - 'This is the Detecter 10k Extreme that you will use to detect poison in the
+      food. '
+    - To use it, collect the food by clicking "E"
+    - 'Next, click "C" to check if there is poison in the ood. '
+    - 'Nice! You can bring this back to the tribe now! '
+    - Let's check another peice of food.  Follow the path!
+    - Oh no! It has been poisoned! My tribe cannot eat this.
+    - Continue this process until you collect all the needed food.  If you need to
+      look back, click "T" to check your task!
+    - Do you need a hint?
+    - 'A hint requested is a hint give.  Your hint is: '
+    - 'Alright then! Continue on with your task! '
+    - Congrats on finishing the tasks and thank you for helping us! You must now
+      venture on to complete the next task.
     goal:
-      goalType: 0
-      requiredAmount: 1
+      goalType: 1
+      requiredAmount: 22
       currentAmount: 0
   - isActive: 0
     title: Finish
