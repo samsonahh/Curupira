@@ -645,8 +645,13 @@ MonoBehaviour:
       requiredAmount: 3
       currentAmount: 0
   - isActive: 0
+<<<<<<< HEAD
     title: Our Home!
     description: Collect 10 Branches
+=======
+    title: Branch Collection
+    description: Collect 3 branches
+>>>>>>> 735ac7ba88c561ecd09bb76a03ee32a70ac851ba
     sentences:
     - Around the forest are fallen branches.
     - FInd and collect the branches and bring them back to the tree.
