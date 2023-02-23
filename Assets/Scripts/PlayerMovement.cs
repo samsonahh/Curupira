@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        launchDirection = Vector3.zero;
     }
 
     private void FixedUpdate()

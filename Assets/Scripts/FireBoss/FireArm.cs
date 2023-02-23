@@ -74,6 +74,12 @@ public class FireArm : MonoBehaviour
             GetComponent<Collider>().isTrigger = true;
             Destroy(spot);
         }
+        else
+        {
+            CameraShakeManager.Instance.ShakeCamera(7.5f, 0.3f);
+            GetComponent<Collider>().isTrigger = true;
+            Destroy(spot);
+        }
     }
 
 }
