@@ -669,7 +669,10 @@ MonoBehaviour:
     title: Finish
     description: You are finished.
     sentences:
-    - Thanks
+    - Thank you so much for your help Wanderer!
+    - You've greatly helped me and my tribe and for that I wish you well on your
+      journey.
+    - Until next time!
     goal:
       goalType: 1
       requiredAmount: 9999
