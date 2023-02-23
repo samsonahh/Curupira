@@ -632,30 +632,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuests:
   - isActive: 0
-    title: Branch Collection
-    description: Collect 3 branches.
+    title: Introduction
+    description: Meet the Macaw Tribe Leader and Learn Your Task
     sentences:
-    - Hey!
-    - Can you help me?
-    - Please collect 3 branches and bring them to me!
+    - Hey there! I'm Ademir, leader of the Macaw Tribe.
+    - Recently we have started to become more and more endangered.
+    - Our habitat is being destroyed and climate change and wildlife trade is threatening
+      our home!
+    - Can you help us gather some materials to rebuild our home?
     goal:
       goalType: 1
       requiredAmount: 3
       currentAmount: 0
   - isActive: 0
+<<<<<<< HEAD
+    title: Our Home!
+    description: Collect 10 Branches
+=======
     title: Branch Collection
     description: Collect 3 branches
+>>>>>>> 735ac7ba88c561ecd09bb76a03ee32a70ac851ba
     sentences:
-    - Thanks for 3 branches.
-    - I thought I told you to collect more though.
-    - Can you please collect 3 more?
+    - Around the forest are fallen branches.
+    - FInd and collect the branches and bring them back to the tree.
+    - Click "E" to collect the branch
+    - Then find your way back to the tree!
+    - 'Thank you for the branch! There are still other branches around the forest.  '
+    - Collect as many as you can! You can hold onto two branches at a time to bring
+      back to me.
+    - You're halfway there! Be careful though, some of these branches are located
+      in tricky places!
+    - Thank you so much for your help! However, you cannot go on yet! I have one
+      last task for you.
     goal:
       goalType: 1
-      requiredAmount: 3
+      requiredAmount: 10
       currentAmount: 0
   - isActive: 0
-    title: Time to Give a Dam
-    description: Take down the dam by tricking the beaver.
+    title: Where's the Food?!
+    description: Collect food and materials for the tribe.
     sentences:
     - Thanks for all those branches!
     - Our river is blocked because of the dam.
