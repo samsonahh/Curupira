@@ -644,7 +644,7 @@ MonoBehaviour:
       currentAmount: 0
   - isActive: 0
     title: Branch Collection
-    description: Collect 3 branches.
+    description: Collect 3 branches
     sentences:
     - Thanks for 3 branches.
     - I thought I told you to collect more though.
