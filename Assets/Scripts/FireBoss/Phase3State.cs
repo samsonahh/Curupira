@@ -86,7 +86,7 @@ public class Phase3State : State
 
             yield return new WaitForSeconds(2f);
 
-            if (cycle % 3 == 2)
+            if (cycle % 3 == 1)
             {
                 // spawn one big minion that tries to jump and slam on player it stuns itself for 2 secs everytime it does
                 GameObject bigMinion = Instantiate(bigFireMinion, new Vector3(0, 0, 10f), Quaternion.identity);

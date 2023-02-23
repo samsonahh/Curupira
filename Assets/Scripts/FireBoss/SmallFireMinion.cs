@@ -24,6 +24,8 @@ public class SmallFireMinion : MonoBehaviour
         pmScript = player.GetComponent<PlayerManager>();
         playerMovement = player.GetComponent<PlayerMovement>();
 
+        playerMovement.launchDirection = Vector3.zero;
+
         bombTimer = 0.01f;
         maxBombTimer = 10f;
 

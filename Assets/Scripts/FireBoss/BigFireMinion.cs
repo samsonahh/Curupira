@@ -89,6 +89,7 @@ public class BigFireMinion : MonoBehaviour
 
     IEnumerator Slam()
     {
+        pmScript.isCollecting = false;
         if (pmScript.isKnocked)
         {
             yield break;

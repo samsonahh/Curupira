@@ -27,6 +27,7 @@ public class BigFireMinionCollide : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            pmScript.isCollecting = false;
             if (pmScript.isKnocked)
             {
                 return;
@@ -37,7 +38,7 @@ public class BigFireMinionCollide : MonoBehaviour
             bucketManager.PutDownBucket();
             if (pmScript.isHolding)
             {
-                bucketManager.fillLevel -= 0.6f;
+                bucketManager.fillLevel = 0f;
             }
 
             pmScript.isKnocked = true;
@@ -49,6 +50,7 @@ public class BigFireMinionCollide : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            pmScript.isCollecting = false;
             if (pmScript.isKnocked)
             {
                 return;

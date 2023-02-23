@@ -25,6 +25,8 @@ public class FireballFollow : MonoBehaviour
         playerPos = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
         spotStart = Instantiate(spotPrefab, playerPos, Quaternion.identity);
         spotEnd = Instantiate(spotPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+
+        playerMovement.launchDirection = Vector3.zero;
     }
 
     // Update is called once per frame
