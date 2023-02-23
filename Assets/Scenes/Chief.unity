@@ -657,6 +657,8 @@ MonoBehaviour:
       back to me.
     - You're halfway there! Be careful though, some of these branches are located
       in tricky places!
+    - Thank you so much for your help! However, you cannot go on yet! I have one
+      last task for you.
     goal:
       goalType: 1
       requiredAmount: 10
