@@ -456,22 +456,38 @@ MonoBehaviour:
       currentAmount: 0
   - isActive: 0
     title: Collect the Tool!
-    description: Collect all the branches
+    description: Tutorial To Collect Branches
     sentences:
     - 'Around the forest are fallen branches. '
     - Find and collec the branches and bring them back to the tree.
     - Click "E" to collect the branch
     - Bring the branch back to the tree!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Collected One
+    description: Player collected one branch
+    sentences:
     - 'Thank you for the branch! There are still other branches around the forest. '
     - 'Collect as many as you can! You can hold onto two branches at a time to bring
       back to me. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Halfway There
+    description: Player collected 5 branches
+    sentences:
     - You're halfway there! Be careful though, some of these branches are located
       in tricky places!
     - 'Thank you so much for your help! However, you cannot go on yet. I have one
       last task for you! '
     goal:
-      goalType: 1
-      requiredAmount: 10
+      goalType: 2
+      requiredAmount: 0
       currentAmount: 0
   - isActive: 0
     title: Where is the Food?!
@@ -481,23 +497,80 @@ MonoBehaviour:
       into the air!
     - When you find a food, you must check if it is poisonous or not!
     - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Detector 10K Extreme
+    description: Tutorial on How To Use
+    sentences:
     - 'This is the Detecter 10k Extreme that you will use to detect poison in the
       food. '
     - To use it, collect the food by clicking "E"
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Detector Part 2
+    description: How to Check Poison
+    sentences:
     - 'Next, click "C" to check if there is poison in the ood. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Checked Detector
+    description: Finished with Detector Tutorial
+    sentences:
     - 'Nice! You can bring this back to the tribe now! '
-    - Let's check another peice of food.  Follow the path!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Back To Tribe
+    description: Bring food back to tribe
+    sentences:
+    - Let's check another piece of food.  Follow the path!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Food is Poisoned
+    description: Continue Checking Poison
+    sentences:
     - Oh no! It has been poisoned! My tribe cannot eat this.
     - Continue this process until you collect all the needed food.  If you need to
       look back, click "T" to check your task!
-    - Do you need a hint?
-    - 'A hint requested is a hint give.  Your hint is: '
+    goal:
+      goalType: 1
+      requiredAmount: 9999
+      currentAmount: 0
+  - isActive: 0
+    title: Continue Task
+    description: Farewell to continue task
+    sentences:
     - 'Alright then! Continue on with your task! '
     - Congrats on finishing the tasks and thank you for helping us! You must now
       venture on to complete the next task.
     goal:
-      goalType: 1
-      requiredAmount: 22
+      goalType: 2
+      requiredAmount: 0
       currentAmount: 0
   - isActive: 0
     title: Finish
@@ -506,10 +579,11 @@ MonoBehaviour:
     - Thank you so much for your help Wanderer!
     - You've greatly helped me and my tribe and for that I wish you well on your
       journey.
+    - You must now venture on to complete the next task
     - Until next time!
     goal:
       goalType: 1
-      requiredAmount: 9999
+      requiredAmount: 22
       currentAmount: 0
   questGiver: {fileID: 219964061}
   distanceFromPlayer: 0
