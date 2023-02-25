@@ -2260,15 +2260,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousScene: 
   currentQuest:
-    isActive: 0
-    title: 
-    description: 
+    isActive: 1
+    title: Introduction
+    description: Meet the Macaw Tribe Leader
     sentences: []
     goal:
-      goalType: 0
+      goalType: 2
       requiredAmount: 0
       currentAmount: 0
-  mainQuestIndex: 0
+  mainQuestIndex: -1
 --- !u!4 &1568269894
 Transform:
   m_ObjectHideFlags: 0

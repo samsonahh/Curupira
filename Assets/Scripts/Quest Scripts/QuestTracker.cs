@@ -34,6 +34,11 @@ public class QuestTracker : MonoBehaviour
             questTracker.SetActive(true);
             titleText.text = MainManager.Instance.currentQuest.title;
             taskText.text = MainManager.Instance.currentQuest.description;
+            if(MainManager.Instance.currentQuest.goal.goalType == GoalType.Talk)
+            {
+                progressText.text = "";
+                return;
+            }
             progressText.text = MainManager.Instance.currentQuest.goal.currentAmount + "/" + MainManager.Instance.currentQuest.goal.requiredAmount;
         }
         else

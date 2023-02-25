@@ -36,7 +36,7 @@ public class BranchCollection : MonoBehaviour
     {
         distanceFromObject = Vector3.Distance(transform.position, playerManager.transform.position);
 
-        if(MainManager.Instance.currentQuest.title != "Branch Collection")
+        if(MainManager.Instance.mainQuestIndex != 1)
         {
             infoText.text = "";
             slider.gameObject.SetActive(false);

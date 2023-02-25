@@ -35,5 +35,6 @@ public class QuestGoal
 public enum GoalType
 {
     Defeat,
-    Gathering
+    Gathering,
+    Talk
 }

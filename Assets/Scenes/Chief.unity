@@ -632,8 +632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainQuests:
   - isActive: 0
-    title: Introduction
-    description: Meet the Macaw Tribe Leader
+    title: First Quest
+    description: Talk to the tribe leader for your first quest.
     sentences:
     - 'Hey there! I''m Ademir, leader of the Macaw Tribe. '
     - 'Recently we have started to become more and more endangered. '
@@ -641,8 +641,8 @@ MonoBehaviour:
       our home!
     - Can you help us gather some materials to rebuild our home?
     goal:
-      goalType: 1
-      requiredAmount: 3
+      goalType: 2
+      requiredAmount: 0
       currentAmount: 0
   - isActive: 0
     title: Collect the Tool!
