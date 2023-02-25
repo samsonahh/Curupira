@@ -497,17 +497,6 @@ MonoBehaviour:
       into the air!
     - When you find a food, you must check if it is poisonous or not!
     - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
     goal:
       goalType: 2
       requiredAmount: 0
