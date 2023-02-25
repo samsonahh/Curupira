@@ -471,7 +471,7 @@ MonoBehaviour:
       last task for you! '
     goal:
       goalType: 1
-      requiredAmount: 3
+      requiredAmount: 10
       currentAmount: 0
   - isActive: 0
     title: Where is the Food?!
