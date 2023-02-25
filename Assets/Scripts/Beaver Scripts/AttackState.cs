@@ -5,8 +5,8 @@ using UnityEngine;
 public class AttackState : State
 {
     public ChaseState chaseState;
-    private BeaverPlayerMovement player;
-    private BeaverPlayerManager playerManager;
+    private PlayerMovement player;
+    private PlayerManager playerManager;
     private GameObject beaver;
     public float attackRange = 2.5f;
     public bool isInAttackRange;
@@ -27,7 +27,6 @@ public class AttackState : State
             Vector3 launchDirection = player.transform.position - beaver.transform.position;
             player.launchDirection = new Vector3(3f * launchDirection.x, launchDirection.y, 3f * launchDirection.z);
             playerManager.isKnocked = true;
-            playerManager.hp--;
             CameraShakeManager.Instance.ShakeCamera(5f, 0.2f);
         }
 
@@ -47,9 +46,9 @@ public class AttackState : State
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeaverPlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         beaver = GameObject.Find("Beaver");
-        playerManager = player.GetComponent<BeaverPlayerManager>();
+        playerManager = player.GetComponent<PlayerManager>();
         animator = GameObject.Find("Beaver").GetComponentInChildren<Animator>();
     }
 

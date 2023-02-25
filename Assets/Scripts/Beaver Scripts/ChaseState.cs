@@ -9,7 +9,7 @@ public class ChaseState : State
     public IdleState idleState;
     public bool isInAttackRange;
     public bool outOfChaseRange;
-    private BeaverPlayerMovement player;
+    private PlayerMovement player;
     private GameObject beaver;
     public float attackRange = 2.5f;
     public float maxChaseDistance = 12f;
@@ -80,7 +80,7 @@ public class ChaseState : State
     }
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeaverPlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         beaver = GameObject.Find("Beaver");
         getLagPosition = GetLagPosition();
         StartCoroutine(getLagPosition);

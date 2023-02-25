@@ -7,7 +7,7 @@ public class BeaverMovement : MonoBehaviour
 
     private Transform playerTransform;
     private PlayerMovement playerMovement;
-    private BeaverPlayerManager playerManager;
+    private PlayerManager playerManager;
     private Vector3 playerLagPosition;
     public float chargeVelocity = 0;
     public float chargeTime = 5f;
@@ -20,7 +20,7 @@ public class BeaverMovement : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<BeaverPlayerManager>();
+        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         lagPos = LagPos();
         StartCoroutine(lagPos);
     }
@@ -80,12 +80,11 @@ public class BeaverMovement : MonoBehaviour
         {
             if (isCharging)
             {
-                BeaverPlayerManager pmScript = other.GetComponent<BeaverPlayerManager>();
+                PlayerManager pmScript = other.GetComponent<PlayerManager>();
                 Vector3 launchDirection = playerManager.transform.position - (new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.75f));
                 playerMovement.controller.Move(3f*launchDirection.normalized);
                 playerManager.isKnocked = true;
                 playerMovement.knockedTimer = 0;
-                pmScript.hp--;
             }
         }
     }

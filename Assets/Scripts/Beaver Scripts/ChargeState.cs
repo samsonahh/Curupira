@@ -6,9 +6,9 @@ public class ChargeState : State
 {
     public ChaseState chaseState;
     public AttackState attackState;
-    private BeaverPlayerMovement player;
+    private PlayerMovement player;
     private GameObject beaver;
-    private BeaverPlayerManager playerManager;
+    private PlayerManager playerManager;
     public bool doneWithCharge;
     public float chargeTimer;
     public float chargeVelocity;
@@ -65,9 +65,9 @@ public class ChargeState : State
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeaverPlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         beaver = GameObject.Find("Beaver");
-        playerManager = player.GetComponent<BeaverPlayerManager>();
+        playerManager = player.GetComponent<PlayerManager>();
         animator = GameObject.Find("Beaver").GetComponentInChildren<Animator>();
     }
 

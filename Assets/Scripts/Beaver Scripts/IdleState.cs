@@ -6,7 +6,7 @@ public class IdleState : State
 {
     public ChaseState chaseState;
     public bool canSeeThePlayer;
-    private BeaverPlayerMovement player;
+    private PlayerMovement player;
     private GameObject beaver;
     public float viewDistance = 6f;
     public float distanceFromPlayer;
@@ -34,7 +34,7 @@ public class IdleState : State
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BeaverPlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         beaver = GameObject.Find("Beaver");
         getRandomPosition = GetRandomPosition();
         StartCoroutine(getRandomPosition);
