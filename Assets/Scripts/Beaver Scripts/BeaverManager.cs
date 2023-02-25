@@ -28,7 +28,7 @@ public class BeaverManager : MonoBehaviour
         {
             if (other.gameObject == wall.gameObject)
             { 
-                wall.hp-=chargeState.chargeVelocity / 5f;
+                wall.hp-=chargeState.chargeVelocity / 15f;
                 chargeState.doneWithCharge = true;
                 chargeState.direction = Vector3.zero;
                 chargeState.playerLagPosition = Vector3.zero;

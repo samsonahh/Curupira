@@ -28,6 +28,11 @@ public class SpawnManager : MonoBehaviour
         prevScene = MainManager.Instance.previousScene;
         TPSpot = GameObject.Find(prevScene + " TP");
 
+        if(TPSpot == null)
+        {
+            player.transform.position = Vector3.zero;
+            return;
+        }
         //Tp to the correct portal spot and renable character controller
         player.transform.position = TPSpot.transform.position;
         player.GetComponent<CharacterController>().enabled = true;

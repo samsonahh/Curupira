@@ -28,7 +28,7 @@ public class ChaseState : State
             chaseDurationTimer += Time.deltaTime;
             Quaternion targetRotation = Quaternion.LookRotation(playerLagPosition - beaver.transform.position, Vector3.up);
             beaver.transform.rotation = Quaternion.Lerp(beaver.transform.rotation, targetRotation, Time.deltaTime * 5f);
-            beaver.transform.position = Vector3.MoveTowards(beaver.transform.position, playerLagPosition, Time.deltaTime * 1f);
+            beaver.transform.position = Vector3.MoveTowards(beaver.transform.position, playerLagPosition, Time.deltaTime * 2f);
             animator.SetBool("isChasing", true);
             stompTimer += Time.deltaTime;
             //if(stompTimer > 6f/7.7f)
