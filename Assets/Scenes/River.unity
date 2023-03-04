@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phase2State: {fileID: 668903243}
-  fireBallPrefab: {fileID: 4376027448671136374, guid: e49521903b7047a4dae6539695226096, type: 3}
+  fireBallPrefab: {fileID: 4376027448671136374, guid: 2029384fc1788fe44b4c9d4da0ca7cd1, type: 3}
   fireArm: {fileID: 2390133919404928617, guid: c5f7aeccc62078742841d9b302257676, type: 3}
   fireArmSpot: {fileID: 2033039834038779988, guid: b6a628651b2a58745b9116d180ab6b41, type: 3}
 --- !u!4 &571249743
@@ -2527,7 +2527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1209122193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2663,7 +2663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1241200829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3132,7 +3132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1600138716
 MonoBehaviour:
   m_ObjectHideFlags: 0

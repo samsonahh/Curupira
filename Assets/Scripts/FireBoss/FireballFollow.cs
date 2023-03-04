@@ -13,6 +13,7 @@ public class FireballFollow : MonoBehaviour
 
     GameObject spotStart, spotEnd;
     public GameObject spotPrefab;
+    public GameObject splashPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class FireballFollow : MonoBehaviour
             Destroy(spotStart);
             Destroy(spotEnd);
             CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
+            Instantiate(splashPrefab, transform.position, Quaternion.identity);
         }
     }
 
@@ -56,6 +58,7 @@ public class FireballFollow : MonoBehaviour
             Destroy(gameObject);
             Destroy(spotStart);
             Destroy(spotEnd);
+            Instantiate(splashPrefab, transform.position, Quaternion.identity);
 
             bucketManager.PutDownBucket();
             if (pmScript.isHolding)
