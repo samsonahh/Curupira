@@ -15,7 +15,7 @@ public class FireSplash : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 1.5f)
+        if(timer > 1.75f)
         {
             Destroy(gameObject);
         }

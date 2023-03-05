@@ -33,7 +33,7 @@ public class FireballFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, playerPos, 5f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, playerPos, 7.5f * Time.deltaTime);
 
         if(transform.position.y <= 0.0001f)
         {

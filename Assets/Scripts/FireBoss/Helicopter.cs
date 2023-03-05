@@ -26,7 +26,7 @@ public class Helicopter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * 6f * Time.deltaTime);
+        transform.Translate(Vector3.back * 10f * Time.deltaTime);
 
         timer += Time.deltaTime;
 
