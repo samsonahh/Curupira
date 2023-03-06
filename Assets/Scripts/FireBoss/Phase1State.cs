@@ -60,7 +60,7 @@ public class Phase1State : State
                 yield return new WaitForSeconds(1.5f);
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             GameObject spot = Instantiate(fireArmSpot, player.transform.position, Quaternion.identity);
             spot.name = "Spot";

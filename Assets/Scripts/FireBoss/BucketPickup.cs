@@ -22,6 +22,8 @@ public class BucketPickup : MonoBehaviour
     GameObject water;
     float emptyTimer;
 
+    public GameObject waterSplash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -148,6 +150,7 @@ public class BucketPickup : MonoBehaviour
                     EmptyBucket();
                     emptyTimer = 0f;
                     CameraShakeManager.Instance.ShakeCamera(10f, 1.5f);
+                    Instantiate(waterSplash, transform.position, Quaternion.identity);
                 }
             }
 

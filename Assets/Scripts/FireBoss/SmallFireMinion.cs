@@ -16,6 +16,8 @@ public class SmallFireMinion : MonoBehaviour
     float bombTimer;
     float maxBombTimer;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,12 +75,11 @@ public class SmallFireMinion : MonoBehaviour
             yield return null;
         }
 
-        GameObject explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        explosion.transform.position = transform.position;
-        Destroy(gameObject.transform.GetChild(0).gameObject);
-
-        yield return new WaitForSeconds(0.5f);
-        Destroy(explosion);
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        if(Vector3.Distance(player.transform.position, transform.position) < 3f)
+        {
+            HitPlayer();
+        }
         Destroy(gameObject);
     }
 
@@ -86,22 +87,28 @@ public class SmallFireMinion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (pmScript.isKnocked)
-            {
-                return;
-            }
-
-            CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
-
-            bucketManager.PutDownBucket();
-            if (pmScript.isHolding)
-            {
-                bucketManager.fillLevel -= 0.6f;
-            }
-
-            pmScript.isKnocked = true;
-            playerMovement.knockedTimer = 0f;
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            HitPlayer();
             Destroy(gameObject);
         }
+    }
+
+    void HitPlayer()
+    {
+        if (pmScript.isKnocked)
+        {
+            return;
+        }
+
+        CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
+
+        bucketManager.PutDownBucket();
+        if (pmScript.isHolding)
+        {
+            bucketManager.fillLevel -= 0.6f;
+        }
+
+        pmScript.isKnocked = true;
+        playerMovement.knockedTimer = 0f;
     }
 }

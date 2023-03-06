@@ -25,7 +25,7 @@ public class FireballFollow : MonoBehaviour
 
         playerPos = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
         spotStart = Instantiate(spotPrefab, playerPos, Quaternion.identity);
-        spotEnd = Instantiate(spotPrefab, transform.position, Quaternion.Euler(90, 0, 0));
+        //spotEnd = Instantiate(spotPrefab, transform.position, Quaternion.Euler(90, 0, 0));
 
         playerMovement.launchDirection = Vector3.zero;
     }
@@ -63,7 +63,7 @@ public class FireballFollow : MonoBehaviour
             bucketManager.PutDownBucket();
             if (pmScript.isHolding)
             {
-                bucketManager.fillLevel -= 0.6f;
+                bucketManager.fillLevel = 0;
             }
 
             pmScript.isKnocked = true;
