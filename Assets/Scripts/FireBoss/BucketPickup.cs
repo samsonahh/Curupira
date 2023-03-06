@@ -147,6 +147,7 @@ public class BucketPickup : MonoBehaviour
                     AttackBoss(fillLevel);
                     EmptyBucket();
                     emptyTimer = 0f;
+                    CameraShakeManager.Instance.ShakeCamera(10f, 1.5f);
                 }
             }
 
@@ -160,6 +161,7 @@ public class BucketPickup : MonoBehaviour
                     minionNear = false;
                     EmptyBucket();
                     emptyTimer = 0f;
+                    CameraShakeManager.Instance.ShakeCamera(5f, 0.5f);
                 }
             }
         }
