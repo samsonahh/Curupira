@@ -78,7 +78,10 @@ public class SmallFireMinion : MonoBehaviour
         Instantiate(explosion, transform.position, Quaternion.identity);
         if(Vector3.Distance(player.transform.position, transform.position) < 3f)
         {
-            HitPlayer();
+            if (!pmScript.isKnocked)
+            {
+                HitPlayer();
+            }
         }
         Destroy(gameObject);
     }
@@ -87,25 +90,38 @@ public class SmallFireMinion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
+            if (pmScript.isKnocked)
+            {
+                return;
+            }
             HitPlayer();
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (pmScript.isKnocked)
+            {
+                return;
+            }
+            HitPlayer();
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
 
     void HitPlayer()
     {
-        if (pmScript.isKnocked)
-        {
-            return;
-        }
-
         CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
 
         bucketManager.PutDownBucket();
         if (pmScript.isHolding)
         {
-            bucketManager.fillLevel -= 0.6f;
+            bucketManager.fillLevel = 0;
         }
 
         pmScript.isKnocked = true;

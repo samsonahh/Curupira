@@ -23,6 +23,9 @@ public class BucketPickup : MonoBehaviour
     float emptyTimer;
 
     public GameObject waterSplash;
+    public GameObject waterCollecting;
+
+    GameObject waterAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +39,24 @@ public class BucketPickup : MonoBehaviour
         pmScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         fireBossManager = GameObject.Find("FireBoss").GetComponent<FireBossManager>();
         water = GameObject.Find("WaterLevel");
+        waterAnim = Instantiate(waterCollecting, gameObject.transform, false);
+        waterAnim.name = "Particles";
+        waterAnim.gameObject.SetActive(false);
         EmptyBucket();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pmScript.isCollecting)
+        {
+            waterAnim.gameObject.SetActive(true);
+        }
+        else
+        {
+            waterAnim.gameObject.SetActive(false);
+        }
+
         HandleOverheadText();
         HandlePlayerManager();
         HandleFillBar();
@@ -140,7 +155,8 @@ public class BucketPickup : MonoBehaviour
                 fillLevel += Time.deltaTime;
             }
 
-            if(pmScript.isHolding && fireBossManager.playerCanWater && fireBossManager.IsVulnerable && !isNearWater && fillLevel > 0f)
+
+            if (pmScript.isHolding && fireBossManager.playerCanWater && fireBossManager.IsVulnerable && !isNearWater && fillLevel > 0f)
             {
                 emptyTimer += Time.deltaTime;
                 pmScript.isCollecting = true;
@@ -165,6 +181,7 @@ public class BucketPickup : MonoBehaviour
                     EmptyBucket();
                     emptyTimer = 0f;
                     CameraShakeManager.Instance.ShakeCamera(5f, 0.5f);
+                    Instantiate(waterSplash, transform.position, Quaternion.identity);
                 }
             }
         }
