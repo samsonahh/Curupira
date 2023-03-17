@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phase3State: {fileID: 1515619641}
   wavePrefab: {fileID: 2080946853322877737, guid: f2794a7f01e7a8a498fa079206ec0ebb, type: 3}
-  fireBallPrefab: {fileID: 4376027448671136374, guid: 2029384fc1788fe44b4c9d4da0ca7cd1, type: 3}
+  fireBallPrefab: {fileID: 4376027448671136374, guid: 9ff374970cc3dd745a183b4bb71118c4, type: 3}
   fireArm: {fileID: 2390133919404928617, guid: c5f7aeccc62078742841d9b302257676, type: 3}
   fireArmSpot: {fileID: 2033039834038779988, guid: b6a628651b2a58745b9116d180ab6b41, type: 3}
 --- !u!4 &668903244
@@ -3007,11 +3007,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireBallPrefab: {fileID: 4376027448671136374, guid: 2029384fc1788fe44b4c9d4da0ca7cd1, type: 3}
+  smartFireBallPrefab: {fileID: 4376027448671136374, guid: 9ff374970cc3dd745a183b4bb71118c4, type: 3}
   fireArm: {fileID: 2390133919404928617, guid: c5f7aeccc62078742841d9b302257676, type: 3}
   fireArmSpot: {fileID: 2033039834038779988, guid: b6a628651b2a58745b9116d180ab6b41, type: 3}
   smallFireMinion: {fileID: 8162721014034482353, guid: cd241e2fff1dad144949cd8794789578, type: 3}
   wavePrefab: {fileID: 2080946853322877737, guid: f2794a7f01e7a8a498fa079206ec0ebb, type: 3}
   bigFireMinion: {fileID: 6987128910371516650, guid: 1456a1ebb7872514c9127a69a09c66a7, type: 3}
+  smoke: {fileID: 6716933543107358056, guid: 235df35536d87e14a8649304c2095d4e, type: 3}
 --- !u!1 &1600138715
 GameObject:
   m_ObjectHideFlags: 0
