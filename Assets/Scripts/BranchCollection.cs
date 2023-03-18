@@ -15,7 +15,7 @@ public class BranchCollection : MonoBehaviour
     float timerMax = 2f;
     public bool onTop = false;
     public float distanceFromObject;
-
+    public int mainQuestIndex;
 
 
     // Start is called before the first frame update
@@ -36,7 +36,7 @@ public class BranchCollection : MonoBehaviour
     {
         distanceFromObject = Vector3.Distance(transform.position, playerManager.transform.position);
 
-        if(MainManager.Instance.mainQuestIndex != 1)
+        if(MainManager.Instance.mainQuestIndex != this.mainQuestIndex)
         {
             infoText.text = "";
             slider.gameObject.SetActive(false);
