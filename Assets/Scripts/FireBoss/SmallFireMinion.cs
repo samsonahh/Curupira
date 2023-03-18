@@ -16,6 +16,8 @@ public class SmallFireMinion : MonoBehaviour
     float bombTimer;
     float maxBombTimer;
 
+    public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,12 +75,14 @@ public class SmallFireMinion : MonoBehaviour
             yield return null;
         }
 
-        GameObject explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        explosion.transform.position = transform.position;
-        Destroy(gameObject.transform.GetChild(0).gameObject);
-
-        yield return new WaitForSeconds(0.5f);
-        Destroy(explosion);
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        if(Vector3.Distance(player.transform.position, transform.position) < 3f)
+        {
+            if (!pmScript.isKnocked)
+            {
+                HitPlayer();
+            }
+        }
         Destroy(gameObject);
     }
 
@@ -90,18 +94,37 @@ public class SmallFireMinion : MonoBehaviour
             {
                 return;
             }
-
-            CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
-
-            bucketManager.PutDownBucket();
-            if (pmScript.isHolding)
-            {
-                bucketManager.fillLevel -= 0.6f;
-            }
-
-            pmScript.isKnocked = true;
-            playerMovement.knockedTimer = 0f;
+            HitPlayer();
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (pmScript.isKnocked)
+            {
+                return;
+            }
+            HitPlayer();
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    void HitPlayer()
+    {
+        CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
+
+        bucketManager.PutDownBucket();
+        if (pmScript.isHolding)
+        {
+            bucketManager.fillLevel = 0;
+        }
+
+        pmScript.isKnocked = true;
+        playerMovement.knockedTimer = 0f;
     }
 }

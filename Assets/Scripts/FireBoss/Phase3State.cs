@@ -10,11 +10,13 @@ public class Phase3State : State
     bool coroutineStarted = false;
 
     public GameObject fireBallPrefab;
+    public GameObject smartFireBallPrefab;
     public GameObject fireArm;
     public GameObject fireArmSpot;
     public GameObject smallFireMinion;
     public GameObject wavePrefab;
     public GameObject bigFireMinion;
+    public GameObject smoke;
 
     GameObject arm;
     private void Start()
@@ -55,32 +57,27 @@ public class Phase3State : State
 
             for (int minionCount = 0; minionCount < 2; minionCount++)
             {
-                smallMinions[minionCount] = Instantiate(smallFireMinion, new Vector3(2.5f - minionCount * 5f, 0, 10f), Quaternion.identity);
+                Vector3 spawnPos = new Vector3(2.5f - minionCount * 5f, 0, 10f);
+
+                Instantiate(smoke, spawnPos, Quaternion.identity);
+
+                yield return new WaitForSeconds(0.5f);
+                smallMinions[minionCount] = Instantiate(smallFireMinion, spawnPos, Quaternion.identity);
 
                 yield return new WaitForSeconds(2f);
             }
 
-            foreach (GameObject minion in smallMinions)
-            {
-                while (minion != null)
-                {
-                    yield return null;
-                }
-            }
-
-            yield return new WaitForSeconds(2f);
-
-            // do a 90% swipe
-
-            yield return new WaitForSeconds(2f);
-
             // shoot 10 fireballs
             for (int fireballCount = 0; fireballCount < 10; fireballCount++)
             {
-                Instantiate(wavePrefab, transform.position, Quaternion.identity);
-                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(3f, 6f), transform.position.z), Quaternion.identity);
-                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(3f, 6f), transform.position.z), Quaternion.identity);
+                if(fireballCount % 2 == 1)
+                {
+                    Instantiate(wavePrefab, transform.position, Quaternion.identity);
+                }
 
+                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
+                
+                Instantiate(smartFireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
                 yield return new WaitForSeconds(1.5f);
             }
 

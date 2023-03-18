@@ -56,9 +56,8 @@ public class Phase2State : State
 
             for (int fireballCount = 0; fireballCount < 6; fireballCount++)
             {
-                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(3f, 6f), transform.position.z), Quaternion.identity);
-
-                if(fireballCount % 3 == 0)
+                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
+                if (fireballCount % 3 == 0)
                 {
                     Instantiate(wavePrefab, transform.position, Quaternion.identity);
                 }

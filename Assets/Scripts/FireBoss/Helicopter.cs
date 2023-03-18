@@ -26,7 +26,7 @@ public class Helicopter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * 6f * Time.deltaTime);
+        transform.Translate(Vector3.back * 10f * Time.deltaTime);
 
         timer += Time.deltaTime;
 
@@ -50,11 +50,15 @@ public class Helicopter : MonoBehaviour
             bucketManager.PutDownBucket();
             if (pmScript.isHolding)
             {
-                bucketManager.fillLevel -= 0.6f;
+                bucketManager.fillLevel -= 0;
             }
 
             pmScript.isKnocked = true;
             playerMovement.knockedTimer = 0f;
+        }
+        if(other.name == "River")
+        {
+            Destroy(gameObject);
         }
     }
 }

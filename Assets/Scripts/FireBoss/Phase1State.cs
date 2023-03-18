@@ -55,12 +55,12 @@ public class Phase1State : State
 
             for (int fireballCount = 0; fireballCount < 6; fireballCount++)
             {
-                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(3f, 6f), transform.position.z), Quaternion.identity);
+                Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
 
                 yield return new WaitForSeconds(1.5f);
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(3f);
 
             GameObject spot = Instantiate(fireArmSpot, player.transform.position, Quaternion.identity);
             spot.name = "Spot";

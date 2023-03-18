@@ -48,7 +48,7 @@ public class FireArm : MonoBehaviour
             bucketManager.PutDownBucket();
             if (pmScript.isHolding)
             {
-                bucketManager.fillLevel -= 0.6f;
+                bucketManager.fillLevel = 0;
             }
 
             pmScript.isKnocked = true;

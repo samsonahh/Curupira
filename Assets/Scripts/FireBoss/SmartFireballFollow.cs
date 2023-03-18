@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireballFollow : MonoBehaviour
+public class SmartFireballFollow : MonoBehaviour
 {
     GameObject player;
     PlayerManager pmScript;
@@ -24,7 +24,8 @@ public class FireballFollow : MonoBehaviour
         bucketManager = GameObject.Find("Bucket").GetComponent<BucketPickup>();
 
         playerPos = new Vector3(player.transform.position.x, 0f, player.transform.position.z);
-        spotStart = Instantiate(spotPrefab, playerPos, Quaternion.identity);
+        spotStart = Instantiate(spotPrefab, PredictPlayerPosition(), Quaternion.identity);
+        playerPos = PredictPlayerPosition();
         //spotEnd = Instantiate(spotPrefab, transform.position, Quaternion.Euler(90, 0, 0));
 
         playerMovement.launchDirection = Vector3.zero;
@@ -69,5 +70,17 @@ public class FireballFollow : MonoBehaviour
             pmScript.isKnocked = true;
             playerMovement.knockedTimer = 0f;
         }
+    }
+
+    Vector3 PredictPlayerPosition()
+    {
+        Vector3 flatPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+
+        if (!pmScript.isMoving)
+        {
+            return flatPos;
+        }
+
+        return flatPos + playerMovement.speed*player.transform.forward;
     }
 }
