@@ -56,5 +56,9 @@ public class Helicopter : MonoBehaviour
             pmScript.isKnocked = true;
             playerMovement.knockedTimer = 0f;
         }
+        if(other.name == "River")
+        {
+            Destroy(gameObject);
+        }
     }
 }
