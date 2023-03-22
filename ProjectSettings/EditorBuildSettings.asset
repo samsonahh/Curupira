@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Beaver.unity
+    guid: 20451f3514228f245ba8546cbc8fe55e
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Spawn.unity
     guid: a53e07bde1350f24aa52e6dff70daa3c
@@ -18,18 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tree.unity
     guid: 56a976683342a8c418272f0f5af943d8
   - enabled: 1
-    path: Assets/Scenes/Beaver.unity
-    guid: c822cdcbfcb7a094ab67406a84622028
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 078767727b4b92d498d292ccf5c7ec02
+    path: Assets/Scenes/Main.unity
+    guid: 7ce3d671cc58f47449fe2a5d30b76a6a
   - enabled: 1
     path: Assets/Scenes/Chief.unity
     guid: 33c00c6278228ba4f84aac14f2343307
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 547d21ece02fc7146b0bad48594928eb
   m_configObjects: {}
