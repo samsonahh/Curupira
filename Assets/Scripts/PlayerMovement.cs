@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public Camera cam;
     //Movement
-    public float speed = 3f;
+    public float speed = 3.5f;
     float sprintSpeed = 6f;
     float crouchSpeed = 1.5f;
     public float rotationSmoothTime = 0.1f;
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            speed = 3f;
+            speed = 3.5f;
             controller.height = 2;
             controller.center = Vector3.up;
         }
