@@ -40,7 +40,7 @@ Material:
     - _Glossiness: 0
     - _Metallic: 0
     - _ThresholdHigh: 1
-    - _ThresholdLow: 0.456
+    - _ThresholdLow: 0.205
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
