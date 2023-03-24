@@ -9,7 +9,6 @@ public class NPCInteractable : MonoBehaviour
     private GameObject player;
     private PlayerManager playerManager;
 
-    public Quest[] mainQuests;
     public QuestGiver questGiver;
 
     public float distanceFromPlayer;
@@ -47,14 +46,14 @@ public class NPCInteractable : MonoBehaviour
         {
             if (!MainManager.Instance.currentQuest.isActive)
             {
-                questGiver.quest = mainQuests[MainManager.Instance.mainQuestIndex];
+                questGiver.quest = MainManager.Instance.mainQuests[MainManager.Instance.mainQuestIndex];
                 questGiver.questOpen = true;
             }
             if(MainManager.Instance.currentQuest.isActive && MainManager.Instance.currentQuest.goal.isReached())
             {
                 MainManager.Instance.currentQuest.Complete();
                 MainManager.Instance.mainQuestIndex++;
-                questGiver.quest = mainQuests[MainManager.Instance.mainQuestIndex];
+                questGiver.quest = MainManager.Instance.mainQuests[MainManager.Instance.mainQuestIndex];
                 questGiver.questOpen = true;
             }
         }

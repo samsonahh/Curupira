@@ -19,6 +19,7 @@ public class QuestGiver : MonoBehaviour
 
     public int textIndex;
     public bool questOpen;
+    bool isTyping;
 
     private void Start()
     {
@@ -66,7 +67,11 @@ public class QuestGiver : MonoBehaviour
         }
 
         nameText.text = "Chief: " + quest.title;
-        dialogueText.text = quest.sentences[textIndex];
+        if (!isTyping)
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(quest.sentences[textIndex]));
+        }
     }
 
     public void OpenIncompleteDialogue()
@@ -75,7 +80,11 @@ public class QuestGiver : MonoBehaviour
         player.isInteracting = true;
 
         nameText.text = "Chief: " + quest.title;
-        dialogueText.text = quest.sentences[quest.sentences.Length - 1];
+        if (!isTyping)
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(quest.sentences[quest.sentences.Length - 1]));
+        }
 
         continueButton.gameObject.SetActive(false);
         acceptButton.gameObject.SetActive(false);
@@ -83,6 +92,7 @@ public class QuestGiver : MonoBehaviour
 
     public void Continue()
     {
+        isTyping = false;
         textIndex++;
     }
 
@@ -95,6 +105,7 @@ public class QuestGiver : MonoBehaviour
 
     public void CloseDialogue()
     {
+        isTyping = false;
         dialogueCanvas.gameObject.SetActive(false);
         player.isInteracting = false;
         textIndex = 0;
@@ -126,5 +137,16 @@ public class QuestGiver : MonoBehaviour
     public void HoverCloseButton(float size)
     {
         closeButton.transform.localScale = new Vector3(size, size, size);
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+        foreach(char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.025f);
+        }
     }
 }

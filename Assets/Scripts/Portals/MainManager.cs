@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour
 
     public string previousScene = "";
 
+    public Quest[] mainQuests;
     public Quest currentQuest;
     public int mainQuestIndex = 0;
 

@@ -2259,6 +2259,140 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousScene: 
+  mainQuests:
+  - isActive: 0
+    title: First Quest
+    description: Talk to the tribe leader for your first quest.
+    sentences:
+    - 'Hey there! I''m Ademir, leader of the Macaw Tribe. '
+    - 'Recently we have started to become more and more endangered. '
+    - Our habitat is being destroyed and climate change and wildlife trade is threatening
+      our home!
+    - Can you help us gather some materials to rebuild our home?
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Collect the Tool!
+    description: Tutorial To Collect Branches
+    sentences:
+    - 'Around the forest are fallen branches. '
+    - Find and collec the branches and bring them back to the tree.
+    - Click "E" to collect the branch
+    - Bring the branch back to the tree!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Collected One
+    description: Player collected one branch
+    sentences:
+    - 'Thank you for the branch! There are still other branches around the forest. '
+    - 'Collect as many as you can! You can hold onto two branches at a time to bring
+      back to me. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Halfway There
+    description: Player collected 5 branches
+    sentences:
+    - You're halfway there! Be careful though, some of these branches are located
+      in tricky places!
+    - 'Thank you so much for your help! However, you cannot go on yet. I have one
+      last task for you! '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Where is the Food?!
+    description: Find and collect food and material
+    sentences:
+    - Food is located around the forest, but some are poisonous frmo chemicals released
+      into the air!
+    - When you find a food, you must check if it is poisonous or not!
+    - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Detector 10K Extreme
+    description: Tutorial on How To Use
+    sentences:
+    - 'This is the Detecter 10k Extreme that you will use to detect poison in the
+      food. '
+    - To use it, collect the food by clicking "E"
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Detector Part 2
+    description: How to Check Poison
+    sentences:
+    - 'Next, click "C" to check if there is poison in the ood. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Checked Detector
+    description: Finished with Detector Tutorial
+    sentences:
+    - 'Nice! You can bring this back to the tribe now! '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Back To Tribe
+    description: Bring food back to tribe
+    sentences:
+    - Let's check another piece of food.  Follow the path!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Food is Poisoned
+    description: Continue Checking Poison
+    sentences:
+    - Oh no! It has been poisoned! My tribe cannot eat this.
+    - Continue this process until you collect all the needed food.  If you need to
+      look back, click "T" to check your task!
+    goal:
+      goalType: 1
+      requiredAmount: 9999
+      currentAmount: 0
+  - isActive: 0
+    title: Continue Task
+    description: Farewell to continue task
+    sentences:
+    - 'Alright then! Continue on with your task! '
+    - Congrats on finishing the tasks and thank you for helping us! You must now
+      venture on to complete the next task.
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Finish
+    description: You are finished.
+    sentences:
+    - Thank you so much for your help Wanderer!
+    - You've greatly helped me and my tribe and for that I wish you well on your
+      journey.
+    - You must now venture on to complete the next task
+    - Until next time!
+    goal:
+      goalType: 1
+      requiredAmount: 22
+      currentAmount: 0
   currentQuest:
     isActive: 1
     title: Introduction
