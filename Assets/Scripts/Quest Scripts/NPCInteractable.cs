@@ -64,19 +64,19 @@ public class NPCInteractable : MonoBehaviour
 
     void HandleNameText()
     {
-        if (distanceFromPlayer > 5f)
+        if (distanceFromPlayer > 7.5f)
         {
             canvas.gameObject.SetActive(false);
             isInteractable = false;
         }
 
-        if (distanceFromPlayer < 5f && distanceFromPlayer > 0.75f)
+        if (distanceFromPlayer < 7.5f && distanceFromPlayer > 1.5f)
         {
             canvas.gameObject.SetActive(true);
             nameText.text = gameObject.name;
             isInteractable = false;
         }
-        if (distanceFromPlayer < 0.75f)
+        if (distanceFromPlayer < 1.5f)
         {
             nameText.text = "E";
             isInteractable = true;

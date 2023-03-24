@@ -207,7 +207,7 @@ public class BucketPickup : MonoBehaviour
 
         float scale = level * 0.15f / 2f;
         water.transform.localPosition = new Vector3(0, scale, 0);
-        water.transform.localScale = new Vector3(0.3f, scale, 0.3f);
+        water.transform.localScale = new Vector3(0.267f, scale, 0.267f);
 
     }
 

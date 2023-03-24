@@ -57,10 +57,10 @@ MonoBehaviour:
   m_Name: CM vcam1 Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 4147602824374281320}
   - {fileID: -4929190247857099757}
   - {fileID: 7904745492358104920}
---- !u!114 &4147602824374281320
+  - {fileID: 5924155804982869430}
+--- !u!114 &5924155804982869430
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c756fe45ae37747864bbe1e991ae38, type: 3}
-  m_Name: EdgeDetect_AfterStack
+  m_Script: {fileID: 11500000, guid: 9e1905ad603bb9a479914accad762e92, type: 3}
+  m_Name: EdgeDetect_BeforeTransparent
   m_EditorClassIdentifier: 
   active: 1
   enabled:
@@ -89,7 +89,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0.2
   edgeExp:
-    overrideState: 1
+    overrideState: 0
     value: 1
   sampleDist:
     overrideState: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
     value: 0
   edgesOnlyBgColor:
     overrideState: 0
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &7904745492358104920
 MonoBehaviour:
   m_ObjectHideFlags: 3
