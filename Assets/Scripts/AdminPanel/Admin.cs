@@ -15,25 +15,17 @@ public class Admin : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ToScene("Spawn");
+            ToScene("Main");
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ToScene("Main");
+            ToScene("Tree");
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ToScene("Tree");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            ToScene("Chief");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
             ToScene("River");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             ToScene("Beaver");
         }

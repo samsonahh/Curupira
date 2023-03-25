@@ -44,7 +44,6 @@ public class MainManager : MonoBehaviour
 
     private void GetQuestGiver(Scene current, Scene next)
     {
-        Debug.Log("SCENE CHANGED!!!!");
         QuestGiver sceneQuestGiver = GameObject.FindObjectOfType<QuestGiver>();
 
         if (sceneQuestGiver)

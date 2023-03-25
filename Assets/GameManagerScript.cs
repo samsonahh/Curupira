@@ -21,7 +21,7 @@ public class GameManagerScript : MonoBehaviour
     public void Button()
     {
         MainManager.Instance.previousScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Spawn");
+        SceneManager.LoadScene("Main");
     }
 
     public void HoverOverPlay(float size)

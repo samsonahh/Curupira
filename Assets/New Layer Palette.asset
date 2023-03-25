@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: New Layer Palette
   m_EditorClassIdentifier: 
   PaletteLayers:
-  - {fileID: 8574412962073106934, guid: bd1fcb10d2c5b5d4ba6e01a34e4735be, type: 2}
-  - {fileID: 8574412962073106934, guid: 0cbb01b61ed524a48a119d81aa262fed, type: 2}
   - {fileID: 8574412962073106934, guid: d25c8def728088547ae6a1024dd9b481, type: 2}
-  - {fileID: 8574412962073106934, guid: d22b773f3dc4af5449de7a6e7741e527, type: 2}
+  - {fileID: 8574412962073106934, guid: 091511b8c4f042c4082a4d5af73e92c7, type: 2}

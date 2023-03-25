@@ -32,10 +32,12 @@ public class PlayerManager : MonoBehaviour
         if (isInteracting)
         {
             virtualCamera.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
         else
         {
             virtualCamera.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
