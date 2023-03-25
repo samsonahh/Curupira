@@ -28,4 +28,10 @@ public class GameManagerScript : MonoBehaviour
     {
         GameObject.Find("Button").transform.localScale = new Vector3(size, size, size);
     }
+
+    public void Setting()
+    {
+        MainManager.Instance.previousScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("Setting");
+    }
 }

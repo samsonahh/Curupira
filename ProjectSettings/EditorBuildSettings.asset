@@ -5,8 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Spawn.unity
     guid: a53e07bde1350f24aa52e6dff70daa3c
   - enabled: 1
     path: Assets/Scenes/River.unity
@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 078767727b4b92d498d292ccf5c7ec02
+  - enabled: 1
+    path: Assets/Scenes/Setting.unity
+    guid: e66370e5d5aa5a943b694bc51c9a9438
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 547d21ece02fc7146b0bad48594928eb
   m_configObjects: {}
