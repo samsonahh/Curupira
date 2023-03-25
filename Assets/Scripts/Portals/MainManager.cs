@@ -1,13 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
+    [Header("Scene Management")]
     public string previousScene = "";
 
+    [Header("Dialogue Management")]
+    public GameObject dialogueCanvas;
+    public bool dialogueCanvasIsOpened;
+
+    [Header("Quest Management")]
     public Quest[] mainQuests;
     public Quest currentQuest;
     public int mainQuestIndex = 0;
@@ -25,7 +35,104 @@ public class MainManager : MonoBehaviour
             return;
         }
 
+        SceneManager.activeSceneChanged += GetQuestGiver;
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        SetupDialogueCanvas();
+    }
+
+    private void GetQuestGiver(Scene current, Scene next)
+    {
+        Debug.Log("SCENE CHANGED!!!!");
+        QuestGiver sceneQuestGiver = GameObject.FindObjectOfType<QuestGiver>();
+
+        if (sceneQuestGiver)
+        {
+            //Grab dialogue components
+            TMP_Text nameText = dialogueCanvas.transform.Find("NameText").GetComponent<TMP_Text>();
+            TMP_Text dialogueText = dialogueCanvas.transform.Find("DialogueText").GetComponent<TMP_Text>();
+            Button acceptButton = dialogueCanvas.transform.Find("AcceptButton").GetComponent<Button>();
+            Button continueButton = dialogueCanvas.transform.Find("ContinueButton").GetComponent<Button>();
+            Button closeButton = dialogueCanvas.transform.Find("CancelButton").GetComponent<Button>(); 
+
+            acceptButton.onClick.AddListener(sceneQuestGiver.AcceptQuest);
+            continueButton.onClick.AddListener(sceneQuestGiver.Continue);
+            closeButton.onClick.AddListener(sceneQuestGiver.CloseDialogue);
+        }
+    }
+
+    void SetupDialogueCanvas()
+    {
+        DontDestroyOnLoad(dialogueCanvas.gameObject);
+        dialogueCanvas.gameObject.SetActive(false);
+        foreach (Transform o in dialogueCanvas.transform)
+        {
+            o.gameObject.LeanAlpha(0, 0.1f);
+            o.localScale = Vector2.zero;
+        }
+
+        Button acceptButton = dialogueCanvas.transform.Find("AcceptButton").GetComponent<Button>();
+        Button continueButton = dialogueCanvas.transform.Find("ContinueButton").GetComponent<Button>();
+        Button closeButton = dialogueCanvas.transform.Find("CancelButton").GetComponent<Button>();
+        Button[] buttons = { acceptButton, continueButton, closeButton };
+
+        foreach (Button button in buttons)
+        {
+            float hoverScale = 1.1f;
+
+            if(button.name == "CancelButton")
+            {
+                hoverScale = 1.3f;
+            }
+
+            EventTrigger trigger = button.GetComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+
+            entry.eventID = EventTriggerType.PointerEnter;
+            entry.callback.AddListener((eventData) => { HoverButton(button, hoverScale); });
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerExit;
+            entry.callback.AddListener((eventData) => { HoverButton(button, 1f); });
+            trigger.triggers.Add(entry);
+        }
+    }
+
+    public void HoverButton(Button button, float size)
+    {
+        button.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart();
+    }
+
+    public IEnumerator OpenDialogueCanvas()
+    {
+        dialogueCanvasIsOpened = true;
+        dialogueCanvas.SetActive(true);
+        foreach(Transform o in dialogueCanvas.transform)
+        {
+            o.gameObject.LeanAlpha(1, 0.75f);
+            o.LeanScale(Vector2.one, 0.75f).setEaseOutQuart();
+        }
+        yield return null;
+    }
+
+    public IEnumerator CloseDialogueCanvas()
+    {
+        dialogueCanvasIsOpened = false;
+        foreach (Transform o in dialogueCanvas.transform)
+        {
+            o.gameObject.LeanAlpha(0, 0.25f);
+            if(o.name == "CancelButton")
+            {
+                o.LeanScale(Vector2.zero, 0.05f).setEaseInQuart();
+            }
+            else
+            {
+                o.LeanScale(Vector2.zero, 0.25f).setEaseInQuart();
+            }
+        }
+        yield return new WaitForSeconds(0.25f);
+        dialogueCanvas.SetActive(false);
     }
 }

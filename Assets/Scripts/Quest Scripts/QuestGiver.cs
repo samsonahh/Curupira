@@ -10,7 +10,6 @@ public class QuestGiver : MonoBehaviour
 
     public PlayerManager player;
 
-    public Canvas dialogueCanvas;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public Button acceptButton;
@@ -20,11 +19,18 @@ public class QuestGiver : MonoBehaviour
     public int textIndex;
     public bool questOpen;
     bool isTyping;
+    bool canvasIsOpened;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        dialogueCanvas.gameObject.SetActive(false);
+
+        nameText = MainManager.Instance.dialogueCanvas.transform.Find("NameText").GetComponent<TMP_Text>();
+        dialogueText = MainManager.Instance.dialogueCanvas.transform.Find("DialogueText").GetComponent<TMP_Text>();
+        acceptButton = MainManager.Instance.dialogueCanvas.transform.Find("AcceptButton").GetComponent<Button>();
+        continueButton = MainManager.Instance.dialogueCanvas.transform.Find("ContinueButton").GetComponent<Button>();
+        closeButton = MainManager.Instance.dialogueCanvas.transform.Find("CancelButton").GetComponent<Button>();
+
         textIndex = 0;
         questOpen = false;
     }
@@ -51,7 +57,10 @@ public class QuestGiver : MonoBehaviour
 
     public void OpenDialogue()
     {
-        dialogueCanvas.gameObject.SetActive(true);
+        if (!MainManager.Instance.dialogueCanvasIsOpened) {
+            StopAllCoroutines();
+            StartCoroutine(MainManager.Instance.OpenDialogueCanvas());
+        }
         player.isInteracting = true;
 
         if (textIndex < quest.sentences.Length-1)
@@ -76,7 +85,11 @@ public class QuestGiver : MonoBehaviour
 
     public void OpenIncompleteDialogue()
     {
-        dialogueCanvas.gameObject.SetActive(true);
+        if (!MainManager.Instance.dialogueCanvasIsOpened)
+        {
+            StopAllCoroutines();
+            StartCoroutine(MainManager.Instance.OpenDialogueCanvas());
+        }
         player.isInteracting = true;
 
         nameText.text = "Chief: " + quest.title;
@@ -106,7 +119,11 @@ public class QuestGiver : MonoBehaviour
     public void CloseDialogue()
     {
         isTyping = false;
-        dialogueCanvas.gameObject.SetActive(false);
+        if (MainManager.Instance.dialogueCanvasIsOpened)
+        {
+            StopAllCoroutines();
+            StartCoroutine(MainManager.Instance.CloseDialogueCanvas());
+        }
         player.isInteracting = false;
         textIndex = 0;
         questOpen = false;
@@ -122,21 +139,6 @@ public class QuestGiver : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-    }
-
-    public void HoverContinueButton(float size)
-    {
-        continueButton.transform.localScale = new Vector3(size, size, size);
-    }
-
-    public void HoverAcceptButton(float size)
-    {
-        acceptButton.transform.localScale = new Vector3(size, size, size);
-    }
-
-    public void HoverCloseButton(float size)
-    {
-        closeButton.transform.localScale = new Vector3(size, size, size);
     }
 
     IEnumerator TypeSentence(string sentence)

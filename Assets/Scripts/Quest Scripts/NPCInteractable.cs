@@ -7,7 +7,6 @@ using TMPro;
 public class NPCInteractable : MonoBehaviour
 {
     private GameObject player;
-    private PlayerManager playerManager;
 
     public QuestGiver questGiver;
 
@@ -21,7 +20,6 @@ public class NPCInteractable : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerManager = player.GetComponent<PlayerManager>();
 
         canvas = GetComponentInChildren<Canvas>();
         nameText = canvas.GetComponentInChildren<TMP_Text>();
