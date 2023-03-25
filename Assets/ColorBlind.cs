@@ -17,7 +17,7 @@ public class ColorBlind : MonoBehaviour
     {
 
     }
-    /*public void Menu()
+    public void Menu()
     {
 
         SceneManager.LoadScene("Menu");
@@ -60,5 +60,5 @@ public class ColorBlind : MonoBehaviour
     public void Achromatopsia()
     {
         CB = 7;
-    }*/
+    }
 }
