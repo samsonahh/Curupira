@@ -29,15 +29,22 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInteracting)
+        if (MainManager.Instance.isGamePaused)
         {
-            virtualCamera.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
         }
         else
         {
-            virtualCamera.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
+            if (isInteracting)
+            {
+                virtualCamera.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                virtualCamera.SetActive(true);
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 }

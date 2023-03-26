@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEditor;
 
 public class MainManager : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class MainManager : MonoBehaviour
     public Quest[] mainQuests;
     public Quest currentQuest;
     public int mainQuestIndex = 0;
+
+    [Header("Pause Menu")]
+    public GameObject pauseCanvas;
+    public bool isGamePaused;
 
     public bool isQuestActive()
     {
@@ -40,11 +45,24 @@ public class MainManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         SetupDialogueCanvas();
+        SetupPauseCanvas();
+    }
+
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name != "Menu")
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                isGamePaused = !isGamePaused;
+            }
+            HandlePause();
+        }
     }
 
     private void GetQuestGiver(Scene current, Scene next)
     {
-        QuestGiver sceneQuestGiver = GameObject.FindObjectOfType<QuestGiver>();
+        QuestGiver sceneQuestGiver = FindObjectOfType<QuestGiver>();
 
         if (sceneQuestGiver)
         {
@@ -97,6 +115,42 @@ public class MainManager : MonoBehaviour
             entry.callback.AddListener((eventData) => { HoverButton(button, 1f); });
             trigger.triggers.Add(entry);
         }
+    }
+
+    void SetupPauseCanvas()
+    {
+        DontDestroyOnLoad(pauseCanvas.gameObject);
+        pauseCanvas.gameObject.SetActive(false);
+    }
+
+    void HandlePause()
+    {
+        if (isGamePaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnPauseGame();
+        }
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pauseCanvas.SetActive(true);
+    }
+
+    public void UnPauseGame()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1;
+        pauseCanvas.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        EditorApplication.isPlaying = false;
+        //Application.Quit();
     }
 
     public void HoverButton(Button button, float size)
