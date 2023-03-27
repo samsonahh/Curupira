@@ -144,8 +144,10 @@ public class MainManager : MonoBehaviour
     {
         isGamePaused = false;
         Time.timeScale = 1;
+        pauseCanvas.transform.Find("ConfirmPanel").gameObject.SetActive(false);
         pauseCanvas.SetActive(false);
     }
+
 
     public void QuitGame()
     {
