@@ -16,8 +16,6 @@ Shader "Nature/Terrain/StandardTriplanar" {
         _ThresholdLow("Triplanar Threshold (Low)", Range(0, 1)) = 0.8
         _ThresholdHigh("Triplanar Threshold (High)", Range(0, 1)) = 0.9
 	_CliffTexture("Cliff texture", 2D) = "white" {}
-        [Normal]_CliffNormal("Cliff normal", 2D) = "bump" {} 
-        _CliffNormalStrength("Cliff normal strength", float) = 1
     }
 
     SubShader {
@@ -52,9 +50,6 @@ Shader "Nature/Terrain/StandardTriplanar" {
         half _ThresholdHigh;
 	sampler2D _CliffTexture;
         float4 _CliffTexture_ST;
-	sampler2D _CliffNormal;
-        float4 _CliffNormal_ST;
-        float _CliffNormalStrength;
         // END TRIPLANAR PROPERTIES
 
        
@@ -84,12 +79,7 @@ Shader "Nature/Terrain/StandardTriplanar" {
             o.Albedo = lerp(cliffColor, o.Albedo, threshold);
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Occlusion = lerp(0.5 + cliffColor.r * 2, 1, threshold); // hack to reuse albedo for cliff occlusion
-			
-	    float3 cliffNormalXY = UnpackNormalWithScale(tex2D(_CliffNormal, IN.worldPos.xy * _CliffNormal_ST.xy), _CliffNormalStrength);
-            float3 cliffNormalYZ = UnpackNormalWithScale(tex2D(_CliffNormal, IN.worldPos.zy * _CliffNormal_ST.xy), _CliffNormalStrength);
-            float3 cliffNormal = vec.x * cliffNormalYZ + vec.z * cliffNormalXY;
-	    o.Normal = lerp(cliffNormal, o.Normal, threshold);
+            o.Occlusion = lerp(0.5 + cliffColor.r * 2, 1, threshold); // hack to reuse albedo for cliff occlusi
             // END TRIPLANAR SHADING
         }
         ENDCG

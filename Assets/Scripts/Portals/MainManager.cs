@@ -151,8 +151,8 @@ public class MainManager : MonoBehaviour
 
     public void QuitGame()
     {
-        EditorApplication.isPlaying = false;
-        //Application.Quit();
+        //EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
     public void HoverButton(Button button, float size)
