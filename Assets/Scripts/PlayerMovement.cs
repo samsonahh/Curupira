@@ -195,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckSprint()
     {
-        if (playerManager.isCrouching)
+        if (playerManager.isCrouching || playerManager.isHolding)
         {
             return;
         }

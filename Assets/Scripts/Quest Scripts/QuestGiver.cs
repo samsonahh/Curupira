@@ -49,10 +49,6 @@ public class QuestGiver : MonoBehaviour
                 OpenDialogue();
             }
         }
-        else
-        {
-            LockCursor();
-        }
     }
 
     public void OpenDialogue()

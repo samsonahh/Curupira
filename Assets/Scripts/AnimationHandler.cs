@@ -25,6 +25,7 @@ public class AnimationHandler : MonoBehaviour
         animator.SetFloat("MoveZ", playerMovement.moveDirection.z);
         animator.SetBool("isSprinting", playerManager.isSprinting);
         animator.SetBool("isCrouching", playerManager.isCrouching);
+        animator.SetBool("isHolding", playerManager.isHolding);
     }
 
     private void HandleJumpAnimation()

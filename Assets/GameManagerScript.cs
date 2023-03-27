@@ -26,7 +26,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void HoverOverPlay(float size)
     {
-        GameObject.Find("Button").transform.localScale = new Vector3(size, size, size);
+        GameObject.Find("PlayButton").transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
     }
 
     public void Setting()
