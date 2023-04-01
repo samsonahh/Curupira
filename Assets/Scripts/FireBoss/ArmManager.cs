@@ -25,14 +25,6 @@ public class ArmManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            fireBossManager.playerCanWater = true;
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")

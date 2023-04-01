@@ -159,7 +159,7 @@ public class BucketPickup : MonoBehaviour
             if (pmScript.isHolding && fireBossManager.playerCanWater && fireBossManager.IsVulnerable && !isNearWater && fillLevel > 0f)
             {
                 emptyTimer += Time.deltaTime;
-                pmScript.isDumping = true;
+                pmScript.isCollecting = true;
                 if(emptyTimer > 1f)
                 {
                     AttackBoss(fillLevel);
@@ -173,7 +173,7 @@ public class BucketPickup : MonoBehaviour
             if (pmScript.isHolding && minionNear && !isNearWater && fillLevel > 0f)
             {
                 emptyTimer += Time.deltaTime;
-                pmScript.isDumping = true;
+                pmScript.isCollecting = true;
                 if (emptyTimer > 1f)
                 {
                     Destroy(GameObject.Find("BigMinion"));
