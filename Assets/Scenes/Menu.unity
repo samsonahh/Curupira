@@ -5039,11 +5039,47 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Dam construction task
-    description: lead player to river
+    title: Forest Fire
+    description: Player is at river
     sentences:
-    - Near here is the Amazon River.  You have to locate that river to destroy a
-      dam made by humans!
+    - 'We have the river now, so let''s put out this fire! '
+    - You have to use this bucket to extinguish the fire. To pick it up, press E.
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: FF - put down bucket
+    description: Player puts down bucket
+    sentences:
+    - 'To put it down, simply press E again. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: FF part 3
+    description: Player learns to collect water
+    sentences:
+    - Walk to the river and then click E to collect the water.
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: FF - put down bucket
+    description: Player puts down bucket
+    sentences:
+    - 'To put it down, simply press E again. '
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: FF - put down bucket
+    description: Player puts down bucket
+    sentences:
+    - 'To put it down, simply press E again. '
     goal:
       goalType: 2
       requiredAmount: 0
