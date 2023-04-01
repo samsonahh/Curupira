@@ -144,7 +144,7 @@ public class QuestGiver : MonoBehaviour
         foreach(char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

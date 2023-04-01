@@ -19,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     public bool isKnocked;
     public bool isInteracting;
     public bool isHolding;
+    public bool isDumping;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleMovementConflicts();
         if (MainManager.Instance.isGamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -45,6 +47,15 @@ public class PlayerManager : MonoBehaviour
                 virtualCamera.SetActive(true);
                 Cursor.lockState = CursorLockMode.Locked;
             }
+        }
+    }
+
+    void HandleMovementConflicts()
+    {
+        if (isHolding)
+        {
+            isSprinting = false;
+            isCrouching = false;
         }
     }
 }

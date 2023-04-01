@@ -1638,8 +1638,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: Tree
   timer: 0
-  maxTime: 2
   mainManager: {fileID: 0}
+  touching: 0
 --- !u!65 &481024954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1898,8 +1898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: Beaver
   timer: 0
-  maxTime: 2
   mainManager: {fileID: 0}
+  touching: 0
 --- !u!65 &574264954
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2455,6 +2455,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2161313355112601973, guid: c3fafe649d0dfaf46a1b88544049a572, type: 3}
+      propertyPath: objectName
+      value: Branch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161313355112601973, guid: c3fafe649d0dfaf46a1b88544049a572, type: 3}
       propertyPath: mainQuestIndex
       value: -1
       objectReference: {fileID: 0}
@@ -2898,6 +2902,10 @@ PrefabInstance:
     - target: {fileID: 6976615927814636928, guid: d6fdca8343513ee46936fd172407bb07, type: 3}
       propertyPath: m_Name
       value: Collectible Branch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338828930190002304, guid: d6fdca8343513ee46936fd172407bb07, type: 3}
+      propertyPath: objectName
+      value: Branch
       objectReference: {fileID: 0}
     - target: {fileID: 8338828930190002304, guid: d6fdca8343513ee46936fd172407bb07, type: 3}
       propertyPath: mainQuestIndex
@@ -3798,6 +3806,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736450393374281971, guid: e2e4ca075828c784f8d998850a3b81a5, type: 3}
+      propertyPath: objectName
+      value: Branch
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736450393374281971, guid: e2e4ca075828c784f8d998850a3b81a5, type: 3}
       propertyPath: mainQuestIndex
       value: -1
       objectReference: {fileID: 0}
@@ -4268,8 +4280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: River
   timer: 0
-  maxTime: 2
   mainManager: {fileID: 0}
+  touching: 0
 --- !u!65 &1872579384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4487,6 +4499,7 @@ MonoBehaviour:
   isKnocked: 0
   isInteracting: 0
   isHolding: 0
+  isDumping: 0
 --- !u!1 &2078900505
 GameObject:
   m_ObjectHideFlags: 0

@@ -159,7 +159,7 @@ public class BucketPickup : MonoBehaviour
             if (pmScript.isHolding && fireBossManager.playerCanWater && fireBossManager.IsVulnerable && !isNearWater && fillLevel > 0f)
             {
                 emptyTimer += Time.deltaTime;
-                pmScript.isCollecting = true;
+                pmScript.isDumping = true;
                 if(emptyTimer > 1f)
                 {
                     AttackBoss(fillLevel);
@@ -173,7 +173,7 @@ public class BucketPickup : MonoBehaviour
             if (pmScript.isHolding && minionNear && !isNearWater && fillLevel > 0f)
             {
                 emptyTimer += Time.deltaTime;
-                pmScript.isCollecting = true;
+                pmScript.isDumping = true;
                 if (emptyTimer > 1f)
                 {
                     Destroy(GameObject.Find("BigMinion"));
@@ -189,6 +189,7 @@ public class BucketPickup : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             emptyTimer = 0f;
+            pmScript.isDumping = false;
             pmScript.isCollecting = false;
         }
 
@@ -235,9 +236,9 @@ public class BucketPickup : MonoBehaviour
             return;
         }
 
-        gameObject.transform.SetParent(pmScript.gameObject.transform);
+        gameObject.transform.SetParent(GameObject.Find("mixamorig:Spine").transform);
 
-        gameObject.transform.localPosition = new Vector3(0, 0, 0.6f);
+        gameObject.transform.localPosition = new Vector3(0, -0.3f, 0.5f);
         gameObject.transform.localEulerAngles = Vector3.zero;
 
         gameObject.GetComponent<Collider>().enabled = false;
@@ -251,11 +252,13 @@ public class BucketPickup : MonoBehaviour
     {
         if (pmScript.isHolding)
         {
-            gameObject.transform.SetParent(pmScript.gameObject.transform.parent);
+            gameObject.transform.parent = null;
 
             gameObject.GetComponent<Collider>().enabled = true;
             gameObject.transform.GetChild(0).GetComponent<Collider>().enabled = true;
             transform.GetChild(2).GetComponent<Collider>().enabled = true;
+            gameObject.transform.localPosition = new Vector3(gameObject.transform.localPosition.x, 0, gameObject.transform.localPosition.z);
+            gameObject.transform.localEulerAngles = Vector3.zero;
             pickedUp = false;
         }
     }

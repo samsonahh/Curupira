@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         //For smooth animation (use GetAxis (fractional) instead of GetAxisRaw (integer))
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //For actual movement
-        if (!playerManager.isCollecting && !playerManager.isKnocked && !playerManager.isInteracting)
+        if (!playerManager.isCollecting && !playerManager.isKnocked && !playerManager.isInteracting && !playerManager.isDumping)
         {
             HandleMovement();
         }

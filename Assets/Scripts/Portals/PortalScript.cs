@@ -7,8 +7,9 @@ public class PortalScript : MonoBehaviour
 {
     public string targetScene;
     public float timer;
-    public float maxTime;
+    float maxTime;
     public MainManager mainManager;
+    public bool touching;
 
     // Start is called before the first frame update
     void Start()
@@ -21,18 +22,16 @@ public class PortalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetScene == "Beaver" && MainManager.Instance.currentQuest.title != "Time to Give a Dam")
+        if (touching)
         {
-            return;
+            timer += Time.deltaTime;
         }
-        if (targetScene == "River" && MainManager.Instance.currentQuest.title != "Take Out the Flames")
+        else
         {
-            return;
+            timer = 0f;
         }
-
         if (timer > maxTime)
         {
-            Debug.Log("Scene changed");
             timer = 0;
 
             mainManager.previousScene = SceneManager.GetActiveScene().name;
@@ -45,16 +44,7 @@ public class PortalScript : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            timer = 0f;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag.Equals("Player"))
-        {
-            Debug.Log("Going to " + targetScene + " " + timer);
-            timer += Time.deltaTime;
+            touching = true;
         }
     }
 
@@ -62,7 +52,7 @@ public class PortalScript : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            timer = 0f;
+            touching = false;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class BranchCollection : MonoBehaviour
+public class ObjectCollector : MonoBehaviour
 {
     private PlayerManager playerManager;
     private Canvas canvas;
@@ -15,7 +15,9 @@ public class BranchCollection : MonoBehaviour
     float timerMax = 2f;
     public bool onTop = false;
     public float distanceFromObject;
+
     public int mainQuestIndex;
+    public string objectName;
 
 
     // Start is called before the first frame update
@@ -47,12 +49,24 @@ public class BranchCollection : MonoBehaviour
         {
             if (!onTop)
             {
-                infoText.text = "Branch";
+                infoText.text = objectName;
             }
         }
         else
         {
             infoText.text = "";
+        }
+
+        if (onTop)
+        {
+            infoText.text = "E";
+        }
+        else
+        {
+            infoText.text = ""; //hide the text
+            slider.gameObject.SetActive(false); //hide the bar
+            timer = 0; //reset the bar
+            slider.value = 0; //reset the timer
         }
 
         if (timer > timerMax && Input.GetKey(KeyCode.E) && onTop)
@@ -75,21 +89,16 @@ public class BranchCollection : MonoBehaviour
             slider.value = 0;
             playerManager.isCollecting = false;
         }
+    }
+
+    private void LateUpdate()
+    {
         canvas.transform.LookAt(mainCamera.transform);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        {
-            infoText.text = "E";
-            onTop = true;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")// with object player
         {
             onTop = true;
         }
@@ -100,10 +109,6 @@ public class BranchCollection : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             onTop = false;
-            infoText.text = ""; //hide the text
-            slider.gameObject.SetActive(false); //hide the bar
-            timer = 0; //reset the bar
-            slider.value = 0; //reset the timer
         }
     }
 }
