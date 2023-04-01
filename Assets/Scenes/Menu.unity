@@ -4878,7 +4878,7 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Collect the Tool!
+    title: RBN Task
     description: Tutorial To Collect Branches
     sentences:
     - 'Around the forest are fallen branches. '
@@ -4890,15 +4890,15 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Collected One
+    title: RBN Deposit Task
     description: Player collected one branch
     sentences:
     - 'Thank you for the branch! There are still other branches around the forest. '
     - 'Collect as many as you can! You can hold onto two branches at a time to bring
       back to me. '
     goal:
-      goalType: 2
-      requiredAmount: 0
+      goalType: 1
+      requiredAmount: 4
       currentAmount: 0
   - isActive: 0
     title: Halfway There
@@ -4906,6 +4906,14 @@ MonoBehaviour:
     sentences:
     - You're halfway there! Be careful though, some of these branches are located
       in tricky places!
+    goal:
+      goalType: 1
+      requiredAmount: 5
+      currentAmount: 0
+  - isActive: 0
+    title: RBN Finished Task
+    description: 10 Branches have been collected
+    sentences:
     - 'Thank you so much for your help! However, you cannot go on yet. I have one
       last task for you! '
     goal:
@@ -4913,8 +4921,8 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Where is the Food?!
-    description: Find and collect food and material
+    title: Gather food for tribe
+    description: Find and collect food and materials
     sentences:
     - Food is located around the forest, but some are poisonous frmo chemicals released
       into the air!
@@ -4925,11 +4933,10 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Detector 10K Extreme
+    title: Poison Detector
     description: Tutorial on How To Use
     sentences:
-    - 'This is the Detecter 10k Extreme that you will use to detect poison in the
-      food. '
+    - 'This is the Detecter Extreme that you will use to detect poison in the food. '
     - To use it, collect the food by clicking "E"
     goal:
       goalType: 2
@@ -4959,8 +4966,8 @@ MonoBehaviour:
     sentences:
     - Let's check another piece of food.  Follow the path!
     goal:
-      goalType: 2
-      requiredAmount: 0
+      goalType: 1
+      requiredAmount: 10
       currentAmount: 0
   - isActive: 0
     title: Food is Poisoned
@@ -4974,28 +4981,72 @@ MonoBehaviour:
       requiredAmount: 9999
       currentAmount: 0
   - isActive: 0
-    title: Continue Task
-    description: Farewell to continue task
+    title: Berry halfway point
+    description: collected at least 2 berries
     sentences:
-    - 'Alright then! Continue on with your task! '
-    - Congrats on finishing the tasks and thank you for helping us! You must now
-      venture on to complete the next task.
+    - '2 more berries to go! '
+    goal:
+      goalType: 1
+      requiredAmount: 2
+      currentAmount: 0
+  - isActive: 0
+    title: Seed halfway point
+    description: collected at least 4 seeds
+    sentences:
+    - 4 more seeds to collect!
+    goal:
+      goalType: 1
+      requiredAmount: 4
+      currentAmount: 0
+  - isActive: 0
+    title: Leaf halfway point
+    description: collected at least 5 leaves
+    sentences:
+    - You have 5 more leafs to find!
+    goal:
+      goalType: 1
+      requiredAmount: 5
+      currentAmount: 0
+  - isActive: 0
+    title: Food task finished
+    description: Farewell to continue to quest 2 - beaver
+    sentences:
+    - Thank you so much for your help Wanderer!
+    - You've helped me greatly and my tribe and I wish you well on your journ.ey
+    - Venture on to see what's next!
     goal:
       goalType: 2
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: Finish
-    description: You are finished.
+    title: Dam construction task
+    description: lead player to river
     sentences:
-    - Thank you so much for your help Wanderer!
-    - You've greatly helped me and my tribe and for that I wish you well on your
-      journey.
-    - You must now venture on to complete the next task
-    - Until next time!
+    - Near here is the Amazon River.  You have to locate that river to destroy a
+      dam made by humans!
     goal:
-      goalType: 1
-      requiredAmount: 22
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: At Dam
+    description: player is at the dam
+    sentences:
+    - Look at this dam! I tried shooting away the humans but they didn't seem to
+      give a dam!
+    goal:
+      goalType: 2
+      requiredAmount: 0
+      currentAmount: 0
+  - isActive: 0
+    title: Dam construction task
+    description: lead player to river
+    sentences:
+    - Near here is the Amazon River.  You have to locate that river to destroy a
+      dam made by humans!
+    goal:
+      goalType: 2
+      requiredAmount: 0
       currentAmount: 0
   currentQuest:
     isActive: 1
