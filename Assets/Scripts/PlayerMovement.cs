@@ -92,6 +92,10 @@ public class PlayerMovement : MonoBehaviour
             controller.height = 1;
             controller.center = new Vector3(0, 0.5f, 0);
         }
+        else if (playerManager.isHolding)
+        {
+            speed = 2.5f;
+        }
         else
         {
             speed = 3.5f;
@@ -149,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
             playerManager.isJumping = false;
             playerManager.isFalling = false;
             fallTimer = 0;
+            controller.slopeLimit = 45f;
         }
 
         if (groundedTimer > 0)
@@ -178,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
                 velocityY += Mathf.Sqrt(jumpHeight * 2 * gravity);
 
                 playerManager.isJumping = true;
+                controller.slopeLimit = 90f;
             }
         }
 
