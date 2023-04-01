@@ -211,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
 
     void CheckCrouch()
     {
-        if (playerManager.isSprinting)
+        if (playerManager.isSprinting || playerManager.isHolding)
         {
             return;
         }
