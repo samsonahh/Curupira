@@ -67,6 +67,8 @@ public class Phase3State : State
                 yield return new WaitForSeconds(2f);
             }
 
+            yield return new WaitForSeconds(5f);
+
             // shoot 10 fireballs
             for (int fireballCount = 0; fireballCount < 10; fireballCount++)
             {
@@ -101,7 +103,7 @@ public class Phase3State : State
                     if(healTime > 1f)
                     {
                         healTime = 0f;
-                        fireManager.currentHealth++;
+                        fireManager.currentHealth+=0.5f;
                     }
 
                     if(fireManager.currentHealth >= 30)

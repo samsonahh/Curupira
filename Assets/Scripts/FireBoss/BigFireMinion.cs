@@ -14,12 +14,15 @@ public class BigFireMinion : MonoBehaviour
 
     float spinTimer;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         bucketManager = GameObject.Find("Bucket").GetComponent<BucketPickup>();
         pmScript = GameObject.Find("Player").GetComponent<PlayerManager>();
         playerMovement = pmScript.gameObject.GetComponent<PlayerMovement>();
+        anim = GetComponentInChildren<Animator>();
 
         gameObject.name = "BigMinion";
 
@@ -33,8 +36,10 @@ public class BigFireMinion : MonoBehaviour
 
         if(spinTimer > 5f)
         {
-            if(spinTimer > 7.5f)
+            anim.SetBool("isVulnerable", true);
+            if (spinTimer > 9f)
             {
+                anim.SetBool("isVulnerable", false);
                 spinTimer = 0f;
             }
             return;
@@ -43,7 +48,6 @@ public class BigFireMinion : MonoBehaviour
         if(Vector3.Distance(playerMovement.transform.position, transform.position) > 1f && !slamming)
         {
             transform.position = Vector3.MoveTowards(transform.position, delayedPlayerPos, 2f * Time.deltaTime);
-            transform.GetChild(0).Rotate(0, 90 * 30 * Time.deltaTime, 0);
         }
         else if(Vector3.Distance(playerMovement.transform.position, transform.position) < 1f)
         {
@@ -51,6 +55,16 @@ public class BigFireMinion : MonoBehaviour
             spinTimer = 0f;
             StartCoroutine(Slam());
         }
+
+        HandleAnimations();
+
+        Quaternion targetRotation = Quaternion.LookRotation(delayedPlayerPos - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 2f * Time.deltaTime);
+    }
+
+    void HandleAnimations()
+    {
+        anim.SetBool("isAttacking", slamming);
     }
 
     private void OnTriggerEnter(Collider other)
