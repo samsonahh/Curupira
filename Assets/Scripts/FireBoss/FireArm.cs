@@ -11,6 +11,7 @@ public class FireArm : MonoBehaviour
     FireBossManager fireBossManager;
 
     GameObject spot;
+    public GameObject indicator;
 
     // Start is called before the first frame update
     void Start()
@@ -59,8 +60,8 @@ public class FireArm : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
             fireBossManager.IsVulnerable = true;
+            indicator.SetActive(true);
             Destroy(spot);
-            Debug.Log("OUCH!");
         }
         else if(collision.gameObject.name == "Plane")
         {
