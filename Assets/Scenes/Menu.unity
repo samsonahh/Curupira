@@ -4929,83 +4929,8 @@ MonoBehaviour:
     - When you find a food, you must check if it is poisonous or not!
     - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
     goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: Poison Detector
-    description: Tutorial on How To Use
-    sentences:
-    - 'This is the Detecter Extreme that you will use to detect poison in the food. '
-    - To use it, collect the food by clicking "E"
-    goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: Detector Part 2
-    description: How to Check Poison
-    sentences:
-    - 'Next, click "C" to check if there is poison in the ood. '
-    goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: Checked Detector
-    description: Finished with Detector Tutorial
-    sentences:
-    - 'Nice! You can bring this back to the tribe now! '
-    goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: Back To Tribe
-    description: Bring food back to tribe
-    sentences:
-    - Let's check another piece of food.  Follow the path!
-    goal:
       goalType: 1
-      requiredAmount: 10
-      currentAmount: 0
-  - isActive: 0
-    title: Food is Poisoned
-    description: Continue Checking Poison
-    sentences:
-    - Oh no! It has been poisoned! My tribe cannot eat this.
-    - Continue this process until you collect all the needed food.  If you need to
-      look back, click "T" to check your task!
-    goal:
-      goalType: 1
-      requiredAmount: 9999
-      currentAmount: 0
-  - isActive: 0
-    title: Berry halfway point
-    description: collected at least 2 berries
-    sentences:
-    - '2 more berries to go! '
-    goal:
-      goalType: 1
-      requiredAmount: 2
-      currentAmount: 0
-  - isActive: 0
-    title: Seed halfway point
-    description: collected at least 4 seeds
-    sentences:
-    - 4 more seeds to collect!
-    goal:
-      goalType: 1
-      requiredAmount: 4
-      currentAmount: 0
-  - isActive: 0
-    title: Leaf halfway point
-    description: collected at least 5 leaves
-    sentences:
-    - You have 5 more leafs to find!
-    goal:
-      goalType: 1
-      requiredAmount: 5
+      requiredAmount: 22
       currentAmount: 0
   - isActive: 0
     title: Food task finished
@@ -5058,28 +4983,10 @@ MonoBehaviour:
       requiredAmount: 0
       currentAmount: 0
   - isActive: 0
-    title: FF part 3
-    description: Player learns to collect water
+    title: End of Fire Boss Quest
+    description: 'Player defeated fire boss through all three phases. '
     sentences:
-    - Walk to the river and then click E to collect the water.
-    goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: FF - put down bucket
-    description: Player puts down bucket
-    sentences:
-    - 'To put it down, simply press E again. '
-    goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: FF - put down bucket
-    description: Player puts down bucket
-    sentences:
-    - 'To put it down, simply press E again. '
+    - 'You did it! Thank you for helping us! '
     goal:
       goalType: 2
       requiredAmount: 0
