@@ -39,7 +39,22 @@ public class QuestTracker : MonoBehaviour
                 progressText.text = "";
                 return;
             }
-            progressText.text = MainManager.Instance.currentQuest.goal.currentAmount + "/" + MainManager.Instance.currentQuest.goal.requiredAmount;
+
+            string progressString = "";
+            for (int i = 0; i < MainManager.Instance.currentQuest.goal.objectNames.Length; i++)
+            {
+                progressString += MainManager.Instance.currentQuest.goal.objectNames[i] + ": " + MainManager.Instance.currentQuest.goal.currentAmount[i] + "/" + MainManager.Instance.currentQuest.goal.requiredAmount[i];
+                progressString += "\n";
+            }
+            progressText.text = progressString;
+            if (MainManager.Instance.currentQuest.goal.isReached())
+            {
+                progressText.color = Color.green;
+            }
+            else
+            {
+                progressText.color = Color.red;
+            }
         }
         else
         {

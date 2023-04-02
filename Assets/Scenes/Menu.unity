@@ -4874,21 +4874,24 @@ MonoBehaviour:
       our home!
     - Can you help us gather some materials to rebuild our home?
     goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      goalType: 4
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: RBN Task
     description: Tutorial To Collect Branches
     sentences:
     - 'Around the forest are fallen branches. '
-    - Find and collec the branches and bring them back to the tree.
+    - Find and collect the branches and bring them back to the tree.
     - Click "E" to collect the branch
     - Bring the branch back to the tree!
     goal:
-      goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      goalType: 1
+      objectNames:
+      - Branch
+      requiredAmount: 01000000
+      currentAmount: 00000000
   - isActive: 0
     title: RBN Deposit Task
     description: Player collected one branch
@@ -4898,8 +4901,10 @@ MonoBehaviour:
       back to me. '
     goal:
       goalType: 1
-      requiredAmount: 4
-      currentAmount: 0
+      objectNames:
+      - Branch
+      requiredAmount: 03000000
+      currentAmount: 00000000
   - isActive: 0
     title: Halfway There
     description: Player collected 5 branches
@@ -4908,8 +4913,9 @@ MonoBehaviour:
       in tricky places!
     goal:
       goalType: 1
-      requiredAmount: 5
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: RBN Finished Task
     description: 10 Branches have been collected
@@ -4918,8 +4924,9 @@ MonoBehaviour:
       last task for you! '
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: Gather food for tribe
     description: Find and collect food and materials
@@ -4930,8 +4937,12 @@ MonoBehaviour:
     - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
     goal:
       goalType: 1
-      requiredAmount: 22
-      currentAmount: 0
+      objectNames:
+      - Berries
+      - Seeds
+      - Leaves
+      requiredAmount: 04000000080000000a000000
+      currentAmount: 000000000000000000000000
   - isActive: 0
     title: Food task finished
     description: Farewell to continue to quest 2 - beaver
@@ -4941,8 +4952,9 @@ MonoBehaviour:
     - Venture on to see what's next!
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: Dam construction task
     description: lead player to river
@@ -4951,8 +4963,9 @@ MonoBehaviour:
       dam made by humans!
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: At Dam
     description: player is at the dam
@@ -4961,8 +4974,9 @@ MonoBehaviour:
       give a dam!
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: Forest Fire
     description: Player is at river
@@ -4971,8 +4985,9 @@ MonoBehaviour:
     - You have to use this bucket to extinguish the fire. To pick it up, press E.
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: FF - put down bucket
     description: Player puts down bucket
@@ -4980,8 +4995,9 @@ MonoBehaviour:
     - 'To put it down, simply press E again. '
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   - isActive: 0
     title: End of Fire Boss Quest
     description: 'Player defeated fire boss through all three phases. '
@@ -4989,8 +5005,9 @@ MonoBehaviour:
     - 'You did it! Thank you for helping us! '
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   currentQuest:
     isActive: 1
     title: Introduction
@@ -4998,8 +5015,9 @@ MonoBehaviour:
     sentences: []
     goal:
       goalType: 2
-      requiredAmount: 0
-      currentAmount: 0
+      objectNames: []
+      requiredAmount: 
+      currentAmount: 
   mainQuestIndex: -1
   pauseCanvas: {fileID: 422033137}
   isGamePaused: 0

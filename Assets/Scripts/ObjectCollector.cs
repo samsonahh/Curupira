@@ -73,7 +73,8 @@ public class ObjectCollector : MonoBehaviour
         {
             playerManager.isCollecting = false;
             Destroy(gameObject);
-            MainManager.Instance.currentQuest.goal.currentAmount++;
+            int index = System.Array.IndexOf(MainManager.Instance.currentQuest.goal.objectNames, objectName);
+            MainManager.Instance.currentQuest.goal.currentAmount[index]++;
         }
         else if (Input.GetKey(KeyCode.E) && onTop)
         {
