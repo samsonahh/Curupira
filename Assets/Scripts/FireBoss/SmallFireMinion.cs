@@ -18,6 +18,8 @@ public class SmallFireMinion : MonoBehaviour
 
     public GameObject explosion;
 
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class SmallFireMinion : MonoBehaviour
         bucketManager = GameObject.Find("Bucket").GetComponent<BucketPickup>();
         pmScript = player.GetComponent<PlayerManager>();
         playerMovement = player.GetComponent<PlayerMovement>();
+        anim = GetComponentInChildren<Animator>();
 
         playerMovement.launchDirection = Vector3.zero;
 
@@ -37,12 +40,12 @@ public class SmallFireMinion : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        HandleAnimations();
         if(bombTimer < maxBombTimer && bombTimer > 0)
         {
             bombTimer += Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, delayedPlayerPos, 3f * Time.deltaTime);
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().material.color = Color.Lerp(Color.black, Color.red, bombTimer/maxBombTimer);
         }
 
         if (bombTimer > maxBombTimer)
@@ -51,6 +54,12 @@ public class SmallFireMinion : MonoBehaviour
             StartCoroutine(JumpAndExplode());
             bombTimer = 0f;
         }
+    }
+
+    void HandleAnimations()
+    {
+        anim.SetBool("isMoving", true);
+        transform.LookAt(player.transform);
     }
 
     IEnumerator DelayedPlayerPosition()
@@ -70,11 +79,10 @@ public class SmallFireMinion : MonoBehaviour
         while(jumpTimer < 0.25f)
         {
             jumpTimer += Time.deltaTime;
-            Vector3 playerDir = (player.transform.position - transform.position).normalized;
-            transform.Translate(new Vector3(playerDir.x, 1, playerDir.z) * 10f * Time.deltaTime);
+            transform.Translate(Vector3.forward * 10f * Time.deltaTime);
             yield return null;
         }
-
+        anim.Play("Jump");
         Instantiate(explosion, transform.position, Quaternion.identity);
         if(Vector3.Distance(player.transform.position, transform.position) < 3f)
         {
