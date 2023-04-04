@@ -27,7 +27,7 @@ public class WallManager : MonoBehaviour
             if(MainManager.Instance.mainQuestIndex == 2)
             {
                 Destroy(GameObject.Find("Beaver"));
-                MainManager.Instance.currentQuest.goal.currentAmount[0]++;
+                MainManager.Instance.currentQuest.goals[0].currentAmount++;
                 Destroy(gameObject);
             }
         }

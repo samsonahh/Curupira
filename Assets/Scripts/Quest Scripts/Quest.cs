@@ -11,7 +11,19 @@ public class Quest
     public string description;
     public string[] sentences;
 
-    public QuestGoal goal;
+    public QuestGoal[] goals;
+
+    public bool isQuestFullyComplete()
+    {
+        for(int i = 0; i < goals.Length; i++)
+        {
+            if (!goals[i].isReached())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void Complete()
     {

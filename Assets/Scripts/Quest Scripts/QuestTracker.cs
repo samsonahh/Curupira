@@ -34,31 +34,43 @@ public class QuestTracker : MonoBehaviour
             questTracker.SetActive(true);
             titleText.text = MainManager.Instance.currentQuest.title;
             taskText.text = MainManager.Instance.currentQuest.description;
-            if(MainManager.Instance.currentQuest.goal.goalType == GoalType.Talk)
-            {
-                progressText.text = "";
-                return;
-            }
 
-            string progressString = "";
-            for (int i = 0; i < MainManager.Instance.currentQuest.goal.objectNames.Length; i++)
-            {
-                progressString += MainManager.Instance.currentQuest.goal.objectNames[i] + ": " + MainManager.Instance.currentQuest.goal.currentAmount[i] + "/" + MainManager.Instance.currentQuest.goal.requiredAmount[i];
-                progressString += "\n";
-            }
-            progressText.text = progressString;
-            if (MainManager.Instance.currentQuest.goal.isReached())
-            {
-                progressText.color = Color.green;
-            }
-            else
-            {
-                progressText.color = Color.red;
-            }
+            HandleGoalTypes();
         }
         else
         {
             questTracker.SetActive(false);
+        }
+    }
+
+    public void HandleGoalTypes()
+    {
+        if(MainManager.Instance.currentQuest.goals.Length == 1)
+        {
+            if(MainManager.Instance.currentQuest.goals[0].goalType == GoalType.Talk)
+            {
+                progressText.text = "";
+                return;
+            }
+        }
+
+        string progressString = "";
+
+        for (int i = 0; i < MainManager.Instance.currentQuest.goals.Length; i++)
+        {
+            progressString += MainManager.Instance.currentQuest.goals[i].objectName + ": " + MainManager.Instance.currentQuest.goals[i].currentAmount + "/" + MainManager.Instance.currentQuest.goals[i].requiredAmount;
+            progressString += "\n";
+        }
+
+        progressText.text = progressString;
+
+        if (MainManager.Instance.currentQuest.isQuestFullyComplete())
+        {
+            progressText.color = Color.green;
+        }
+        else
+        {
+            progressText.color = Color.red;
         }
     }
 }

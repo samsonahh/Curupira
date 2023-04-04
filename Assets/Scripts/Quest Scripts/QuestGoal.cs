@@ -7,12 +7,12 @@ public class QuestGoal
 {
     public GoalType goalType;
 
-    public string[] objectNames;
+    public string objectName;
 
-    public int[] requiredAmount;
-    public int[] currentAmount;
+    public int requiredAmount;
+    public int currentAmount;
 
-    public bool isReached()
+/*    public bool isReached()
     {
         for (int i = 0; i < currentAmount.Length; i++)
         {
@@ -23,20 +23,25 @@ public class QuestGoal
             return false;
         }
         return true;
+    }*/
+
+    public bool isReached()
+    {
+        return currentAmount >= requiredAmount;
     }
 
     public void EnemyDefeated()
     {
         if(goalType == GoalType.Defeat)
         {
-            currentAmount[0]++;
+            currentAmount++;
         }
     }
     public void ItemCollected()
     {
         if(goalType == GoalType.Gathering)
         {
-            currentAmount[0]++;
+            currentAmount++;
         }
     }
 

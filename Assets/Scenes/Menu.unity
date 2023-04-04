@@ -4873,11 +4873,11 @@ MonoBehaviour:
     - Our habitat is being destroyed and climate change and wildlife trade is threatening
       our home!
     - Can you help us gather some materials to rebuild our home?
-    goal:
-      goalType: 4
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals:
+    - goalType: 2
+      objectName: 
+      requiredAmount: 0
+      currentAmount: 0
   - isActive: 0
     title: RBN Task
     description: Tutorial To Collect Branches
@@ -4886,12 +4886,11 @@ MonoBehaviour:
     - Find and collect the branches and bring them back to the tree.
     - Click "E" to collect the branch
     - Bring the branch back to the tree!
-    goal:
-      goalType: 1
-      objectNames:
-      - Branch
-      requiredAmount: 01000000
-      currentAmount: 00000000
+    goals:
+    - goalType: 1
+      objectName: Branch
+      requiredAmount: 1
+      currentAmount: 0
   - isActive: 0
     title: RBN Deposit Task
     description: Player collected one branch
@@ -4899,34 +4898,25 @@ MonoBehaviour:
     - 'Thank you for the branch! There are still other branches around the forest. '
     - 'Collect as many as you can! You can hold onto two branches at a time to bring
       back to me. '
-    goal:
-      goalType: 1
-      objectNames:
-      - Branch
-      requiredAmount: 03000000
-      currentAmount: 00000000
+    goals:
+    - goalType: 1
+      objectName: Branch
+      requiredAmount: 3
+      currentAmount: 0
   - isActive: 0
     title: Halfway There
     description: Player collected 5 branches
     sentences:
     - You're halfway there! Be careful though, some of these branches are located
       in tricky places!
-    goal:
-      goalType: 1
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: RBN Finished Task
     description: 10 Branches have been collected
     sentences:
     - 'Thank you so much for your help! However, you cannot go on yet. I have one
       last task for you! '
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: Gather food for tribe
     description: Find and collect food and materials
@@ -4935,14 +4925,19 @@ MonoBehaviour:
       into the air!
     - When you find a food, you must check if it is poisonous or not!
     - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
-    goal:
-      goalType: 1
-      objectNames:
-      - Berries
-      - Seeds
-      - Leaves
-      requiredAmount: 04000000080000000a000000
-      currentAmount: 000000000000000000000000
+    goals:
+    - goalType: 1
+      objectName: Berry
+      requiredAmount: 4
+      currentAmount: 0
+    - goalType: 1
+      objectName: Seed
+      requiredAmount: 8
+      currentAmount: 0
+    - goalType: 1
+      objectName: Leaf
+      requiredAmount: 10
+      currentAmount: 0
   - isActive: 0
     title: Food task finished
     description: Farewell to continue to quest 2 - beaver
@@ -4950,74 +4945,46 @@ MonoBehaviour:
     - Thank you so much for your help Wanderer!
     - You've helped me greatly and my tribe and I wish you well on your journ.ey
     - Venture on to see what's next!
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: Dam construction task
     description: lead player to river
     sentences:
     - Near here is the Amazon River.  You have to locate that river to destroy a
       dam made by humans!
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: At Dam
     description: player is at the dam
     sentences:
     - Look at this dam! I tried shooting away the humans but they didn't seem to
       give a dam!
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: Forest Fire
     description: Player is at river
     sentences:
     - 'We have the river now, so let''s put out this fire! '
     - You have to use this bucket to extinguish the fire. To pick it up, press E.
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: FF - put down bucket
     description: Player puts down bucket
     sentences:
     - 'To put it down, simply press E again. '
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   - isActive: 0
     title: End of Fire Boss Quest
     description: 'Player defeated fire boss through all three phases. '
     sentences:
     - 'You did it! Thank you for helping us! '
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   currentQuest:
     isActive: 1
     title: Introduction
     description: Meet the Macaw Tribe Leader
     sentences: []
-    goal:
-      goalType: 2
-      objectNames: []
-      requiredAmount: 
-      currentAmount: 
+    goals: []
   mainQuestIndex: -1
   pauseCanvas: {fileID: 422033137}
   isGamePaused: 0
