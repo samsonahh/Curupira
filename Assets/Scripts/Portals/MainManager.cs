@@ -26,6 +26,7 @@ public class MainManager : MonoBehaviour
     [Header("Pause Menu")]
     public GameObject pauseCanvas;
     public bool isGamePaused;
+    public bool canGameBePaused = true;
 
     [Header("Fade Canvas")]
     public GameObject fadeCanvas;
@@ -134,7 +135,7 @@ public class MainManager : MonoBehaviour
 
     void HandlePause()
     {
-        if (isGamePaused)
+        if (isGamePaused && canGameBePaused)
         {
             PauseGame();
         }

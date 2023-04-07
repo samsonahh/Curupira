@@ -11,6 +11,8 @@ public class PortalScript : MonoBehaviour
     public bool touching;
     public Image fadeCanvas;
 
+    bool coroutineStarted;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,11 @@ public class PortalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fadeCanvas.transform.parent.gameObject.SetActive(touching);
+        if (touching && !coroutineStarted)
+        {
+            coroutineStarted = true;
+            StartCoroutine(Teleport());
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,8 +35,6 @@ public class PortalScript : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             touching = true;
-            StopAllCoroutines();
-            StartCoroutine(Teleport());
         }
     }
 
@@ -44,18 +48,26 @@ public class PortalScript : MonoBehaviour
 
     IEnumerator Teleport()
     {
-        fadeCanvas.color = new Color(0, 0, 0, 0);
+        fadeCanvas.transform.parent.gameObject.SetActive(true);
+        mainManager.canGameBePaused = false;
+        fadeCanvas.GetComponent<CanvasRenderer>().SetAlpha(0f);
 
         float timer = 0f;
-        while(timer < 2f)
+
+        while(timer < 1f)
         {
+            fadeCanvas.GetComponent<CanvasRenderer>().SetAlpha(Mathf.MoveTowards(fadeCanvas.GetComponent<CanvasRenderer>().GetAlpha(), 1f, Time.deltaTime));
             timer += Time.deltaTime;
-            fadeCanvas.color = new Color(0, 0, 0, timer/2f);
             yield return null;
         }
+
+        fadeCanvas.transform.parent.gameObject.SetActive(false);
 
         mainManager.previousScene = SceneManager.GetActiveScene().name;
 
         SceneManager.LoadScene(targetScene);
+
+        coroutineStarted = false;
+        mainManager.canGameBePaused = true;
     }
 }
