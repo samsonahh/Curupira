@@ -61,8 +61,6 @@ public class PortalScript : MonoBehaviour
             yield return null;
         }
 
-        fadeCanvas.transform.parent.gameObject.SetActive(false);
-
         mainManager.previousScene = SceneManager.GetActiveScene().name;
 
         SceneManager.LoadScene(targetScene);

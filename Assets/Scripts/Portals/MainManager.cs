@@ -45,6 +45,7 @@ public class MainManager : MonoBehaviour
         }
 
         SceneManager.activeSceneChanged += GetQuestGiver;
+        SceneManager.activeSceneChanged += UnFadeCanvas;
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -63,6 +64,11 @@ public class MainManager : MonoBehaviour
             }
             HandlePause();
         }
+    }
+
+    private void UnFadeCanvas(Scene current, Scene next)
+    {
+        StartCoroutine(FadeIn());
     }
 
     private void GetQuestGiver(Scene current, Scene next)
@@ -199,5 +205,27 @@ public class MainManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.25f);
         dialogueCanvas.SetActive(false);
+    }
+
+    IEnumerator FadeIn()
+    {
+        fadeCanvas.SetActive(true);
+        fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(1f);
+
+        canGameBePaused = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        float timer = 0f;
+
+        while (timer < 1f)
+        {
+            fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(Mathf.MoveTowards(fadeCanvas.GetComponentInChildren<CanvasRenderer>().GetAlpha(), 0f, Time.deltaTime));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        canGameBePaused = true;
+        fadeCanvas.SetActive(false);
     }
 }

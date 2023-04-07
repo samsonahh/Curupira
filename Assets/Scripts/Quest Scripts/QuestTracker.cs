@@ -37,9 +37,14 @@ public class QuestTracker : MonoBehaviour
 
             HandleGoalTypes();
         }
-        else
+
+        if (GameObject.Find("Player").GetComponent<PlayerManager>().isInteracting)
         {
             questTracker.SetActive(false);
+        }
+        else
+        {
+            questTracker.SetActive(true);
         }
     }
 
