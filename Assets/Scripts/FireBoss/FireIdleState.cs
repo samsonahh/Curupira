@@ -8,21 +8,14 @@ public class FireIdleState : State
 
     public bool IsPlayerInRange;
 
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-    }
+    public GameObject wall1, wall2;
 
     public override State RunCurrentState()
     {
-
         if (IsPlayerInRange)
         {
+            wall1.SetActive(true);
+            wall2.SetActive(true);
             return phase1State;
         }
         return this;

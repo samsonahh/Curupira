@@ -55,30 +55,12 @@ public class FireArm : MonoBehaviour
             pmScript.isKnocked = true;
             playerMovement.knockedTimer = 0f;
         }
-        else if(collision.gameObject.name == "River")
+        else
         {
             gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
             fireBossManager.IsVulnerable = true;
             indicator.SetActive(true);
-            Destroy(spot);
-        }
-        else if(collision.gameObject.name == "Plane")
-        {
-            CameraShakeManager.Instance.ShakeCamera(7.5f, 0.3f);
-            GetComponent<Collider>().isTrigger = true;
-            Destroy(spot);
-        }
-        else if(collision.gameObject.name == "Bucket")
-        {
-            CameraShakeManager.Instance.ShakeCamera(7.5f, 0.3f);
-            GetComponent<Collider>().isTrigger = true;
-            Destroy(spot);
-        }
-        else
-        {
-            CameraShakeManager.Instance.ShakeCamera(7.5f, 0.3f);
-            GetComponent<Collider>().isTrigger = true;
             Destroy(spot);
         }
     }
