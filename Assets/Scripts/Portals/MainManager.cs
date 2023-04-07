@@ -27,6 +27,9 @@ public class MainManager : MonoBehaviour
     public GameObject pauseCanvas;
     public bool isGamePaused;
 
+    [Header("Fade Canvas")]
+    public GameObject fadeCanvas;
+
     public bool isQuestActive()
     {
         return currentQuest.isActive;
@@ -46,6 +49,7 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         SetupDialogueCanvas();
         SetupPauseCanvas();
+        SetupFadeCanvas();
     }
 
     private void Update()
@@ -77,6 +81,11 @@ public class MainManager : MonoBehaviour
             continueButton.onClick.AddListener(sceneQuestGiver.Continue);
             closeButton.onClick.AddListener(sceneQuestGiver.CloseDialogue);
         }
+    }
+
+    void SetupFadeCanvas()
+    {
+        DontDestroyOnLoad(fadeCanvas.gameObject);
     }
 
     void SetupDialogueCanvas()

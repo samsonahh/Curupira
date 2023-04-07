@@ -29,6 +29,11 @@ public class GameManagerScript : MonoBehaviour
         GameObject.Find("PlayButton").transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
     }
 
+    public void HoverOverSettings(float size)
+    {
+        GameObject.Find("SettingsButton").transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+    }
+
     public void Setting()
     {
         MainManager.Instance.previousScene = SceneManager.GetActiveScene().name;

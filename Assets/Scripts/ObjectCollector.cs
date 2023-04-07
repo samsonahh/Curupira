@@ -16,7 +16,6 @@ public class ObjectCollector : MonoBehaviour
     public bool onTop = false;
     public float distanceFromObject;
 
-    public int mainQuestIndex;
     public string objectName;
 
 
@@ -38,7 +37,7 @@ public class ObjectCollector : MonoBehaviour
     {
         distanceFromObject = Vector3.Distance(transform.position, playerManager.transform.position);
 
-        if(MainManager.Instance.mainQuestIndex != this.mainQuestIndex)
+        if (!IsObjectInCurrentQuest())
         {
             infoText.text = "";
             slider.gameObject.SetActive(false);
@@ -97,6 +96,18 @@ public class ObjectCollector : MonoBehaviour
             slider.value = 0;
             playerManager.isCollecting = false;
         }
+    }
+
+    public bool IsObjectInCurrentQuest()
+    {
+        for (int i = 0; i < MainManager.Instance.currentQuest.goals.Length; i++)
+        {
+            if (MainManager.Instance.currentQuest.goals[i].objectName == objectName)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void LateUpdate()
