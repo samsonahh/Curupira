@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
     public bool isInteracting;
     public bool isHolding;
     public bool isDumping;
+    public bool isGettingUp;
 
     // Start is called before the first frame update
     void Start()

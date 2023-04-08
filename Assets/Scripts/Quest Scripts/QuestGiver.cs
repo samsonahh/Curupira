@@ -39,16 +39,23 @@ public class QuestGiver : MonoBehaviour
     {
         if (questOpen)
         {
-            UnlockCursor();
-            if (quest.isActive)
+            if (!MainManager.Instance.currentQuest.isQuestFullyComplete())
             {
                 OpenIncompleteDialogue();
+                return;
             }
-            if (!quest.isActive)
-            {
-                OpenDialogue();
-            }
+            OpenDialogue();
         }
+    }
+
+    public void InitiateTalk()
+    {
+        if (MainManager.Instance.currentQuest.isQuestFullyComplete())
+        {
+            quest = MainManager.Instance.mainQuests[MainManager.Instance.mainQuestIndex + 1];
+        }
+
+        questOpen = true;
     }
 
     public void OpenDialogue()
@@ -109,6 +116,7 @@ public class QuestGiver : MonoBehaviour
     {
         CloseDialogue();
         quest.isActive = true;
+        MainManager.Instance.mainQuestIndex++;
         MainManager.Instance.currentQuest = quest;
     }
 

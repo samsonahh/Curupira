@@ -25,8 +25,9 @@ public class AttackState : State
         if (!playerManager.isKnocked)
         {
             player.knockedTimer = 0;
-            Vector3 launchDirection = player.transform.position - beaver.transform.position;
+            Vector3 launchDirection = beaver.transform.forward;
             player.launchDirection = new Vector3(3f * launchDirection.x, launchDirection.y, 3f * launchDirection.z);
+            player.launchVelocity = 6f;
             playerManager.isKnocked = true;
             CameraShakeManager.Instance.ShakeCamera(5f, 0.2f);
             playerHealthManager.playerHealth--;

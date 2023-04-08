@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     float fallTimer;
     float groundedTimer;
     public float knockedTimer;
-    public float launchVelocity = 6f;
+    public float launchVelocity;
     public Vector3 launchDirection;
     //Player Bools
     public PlayerManager playerManager;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         //For smooth animation (use GetAxis (fractional) instead of GetAxisRaw (integer))
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         //For actual movement
-        if (!playerManager.isCollecting && !playerManager.isKnocked && !playerManager.isInteracting && !playerManager.isDumping)
+        if (!playerManager.isCollecting && !playerManager.isKnocked && !playerManager.isInteracting && !playerManager.isDumping && !playerManager.isGettingUp)
         {
             HandleMovement();
         }
@@ -74,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
         if(knockedTimer > 2)
         {
             playerManager.isKnocked = false;
-            launchVelocity = 6f;
         }
     }
 
@@ -170,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
         velocityY -= gravity * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && !playerManager.isKnocked)
+        if (Input.GetButtonDown("Jump") && !playerManager.isKnocked && !playerManager.isGettingUp)
         {
             // must have been grounded recently to allow jump
             if (groundedTimer > 0)

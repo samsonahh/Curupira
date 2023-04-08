@@ -8,7 +8,7 @@ public class FireBossManager : MonoBehaviour
 {
     public float currentHealth;
     [SerializeField]
-    private float maxHealth = 100f;
+    private int maxHealth = 100;
 
     public bool IsVulnerable;
     public bool playerCanWater;
@@ -38,7 +38,7 @@ public class FireBossManager : MonoBehaviour
     void SetHealthUI()
     {
         healthBar.value = currentHealth;
-        healthText.text = (int)currentHealth + "/" + maxHealth;
+        healthText.text = currentHealth + "/" + maxHealth;
     }
 
     void HandleVulnerableIndicator()

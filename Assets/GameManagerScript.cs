@@ -40,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
 
         MainManager.Instance.previousScene = "Menu";
 
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Cutscene1");
     }
 
     public void HoverOverPlay(float size)

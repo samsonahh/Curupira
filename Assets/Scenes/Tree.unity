@@ -2710,6 +2710,7 @@ MonoBehaviour:
   isInteracting: 0
   isHolding: 0
   isDumping: 0
+  isGettingUp: 0
 --- !u!1 &1990177679
 GameObject:
   m_ObjectHideFlags: 0

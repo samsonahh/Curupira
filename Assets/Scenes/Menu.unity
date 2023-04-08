@@ -4589,7 +4589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ef3d3a90250f940860f4733f93ce6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 7
+  mode: 0
   showDifference: 0
 --- !u!1 &976305941
 GameObject:
@@ -7887,7 +7887,8 @@ MonoBehaviour:
   currentQuest:
     isActive: 1
     title: Introduction
-    description: Meet the Macaw Tribe Leader
+    description: Follow the dirt road into the giant tree. The Macaw Tribe Leader
+      awaits you.
     sentences: []
     goals: []
   mainQuestIndex: -1

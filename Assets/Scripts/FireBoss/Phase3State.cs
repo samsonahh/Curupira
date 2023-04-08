@@ -67,18 +67,18 @@ public class Phase3State : State
                 yield return new WaitForSeconds(2f);
             }
 
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(7.5f);
 
             // shoot 10 fireballs
             for (int fireballCount = 0; fireballCount < 10; fireballCount++)
             {
-                if(fireballCount % 2 == 1)
+                if (fireballCount % 2 == 1)
                 {
                     Instantiate(wavePrefab, transform.position, Quaternion.identity);
                 }
 
                 Instantiate(fireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
-                
+
                 Instantiate(smartFireBallPrefab, new Vector3(transform.position.x + Random.Range(-7.5f, 7.5f), transform.position.y + Random.Range(3f, 9f), transform.position.z), Quaternion.identity);
                 yield return new WaitForSeconds(1.5f);
             }
@@ -97,16 +97,16 @@ public class Phase3State : State
                 // once boss heals 20 hp
                 // kill the minion
 
-                while(bigMinion != null)
+                while (bigMinion != null)
                 {
                     healTime += Time.deltaTime;
-                    if(healTime > 1f)
+                    if (healTime > 2f)
                     {
                         healTime = 0f;
-                        fireManager.currentHealth+=0.5f;
+                        fireManager.currentHealth += 1;
                     }
 
-                    if(fireManager.currentHealth >= 30)
+                    if (fireManager.currentHealth >= 30)
                     {
                         Destroy(bigMinion);
                     }

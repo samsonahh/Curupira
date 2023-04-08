@@ -46,6 +46,15 @@ public class AnimationHandler : MonoBehaviour
         animator.SetBool("isDumping", playerManager.isDumping);
     }
 
+    void HandleGettingUp()
+    {
+        animator.SetBool("isGettingUp", playerManager.isGettingUp);
+        if (playerManager.isGettingUp)
+        {
+            animator.Play("GettingUp");
+        }
+    }
+
     void HandleKnocked()
     {
         animator.SetBool("isKnocked", playerManager.isKnocked);
@@ -58,6 +67,7 @@ public class AnimationHandler : MonoBehaviour
     void Update()
     {
         HandleJumpAnimation();
+        HandleGettingUp();
         HandleCollecting();
         HandleDumping();
         HandleKnocked();

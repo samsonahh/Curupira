@@ -226,7 +226,7 @@ public class BucketPickup : MonoBehaviour
         {
             damage = 10f;
         }
-        fireBossManager.currentHealth -= damage;
+        fireBossManager.currentHealth -= (int)damage;
     }
 
     void PickupBucket()

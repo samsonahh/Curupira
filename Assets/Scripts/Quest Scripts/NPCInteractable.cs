@@ -42,21 +42,8 @@ public class NPCInteractable : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.E) && isInteractable)
         {
-            if (!MainManager.Instance.currentQuest.isQuestFullyComplete())
-            {
-                //questGiver.quest = MainManager.Instance.mainQuests[MainManager.Instance.mainQuestIndex];
-                questGiver.questOpen = true;
-            }
-            if(MainManager.Instance.currentQuest.isQuestFullyComplete())
-            {
-                MainManager.Instance.currentQuest.Complete();
-                MainManager.Instance.mainQuestIndex++;
-                questGiver.quest = MainManager.Instance.mainQuests[MainManager.Instance.mainQuestIndex];
-                questGiver.questOpen = true;
-            }
+            questGiver.InitiateTalk();
         }
-
-
     }
 
     void HandleNameText()

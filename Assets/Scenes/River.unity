@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.7058824, g: 1, b: 0.7764706, a: 1}
+  m_FogColor: {r: 1, g: 0.8394466, b: 0.7058824, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.005
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -5618,6 +5618,7 @@ MonoBehaviour:
   isInteracting: 0
   isHolding: 0
   isDumping: 0
+  isGettingUp: 0
 --- !u!1 &1953610607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5654,7 +5655,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -6.425003, y: -3.0250187}
-  m_SizeDelta: {x: 176.6373, y: 13.5369}
+  m_SizeDelta: {x: 176.6373, y: 14.2426}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1953610609
 MonoBehaviour:

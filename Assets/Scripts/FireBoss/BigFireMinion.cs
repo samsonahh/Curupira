@@ -120,8 +120,9 @@ public class BigFireMinion : MonoBehaviour
         }
 
         pmScript.isKnocked = true;
-        Vector3 launchDirection = pmScript.transform.position - transform.position;
+        Vector3 launchDirection = transform.forward;
         playerMovement.launchDirection = new Vector3(3f * launchDirection.x, launchDirection.y, 3f * launchDirection.z);
+        playerMovement.launchVelocity = 3f;
         playerMovement.knockedTimer = 0f;
 
         yield return new WaitForSeconds(2f);
