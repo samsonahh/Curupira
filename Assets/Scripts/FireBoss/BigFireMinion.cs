@@ -37,9 +37,11 @@ public class BigFireMinion : MonoBehaviour
         if(spinTimer > 5f)
         {
             anim.SetBool("isVulnerable", true);
+            transform.Find("Body").Find("Indicator").gameObject.SetActive(true);
             if (spinTimer > 9f)
             {
                 anim.SetBool("isVulnerable", false);
+                transform.Find("Body").Find("Indicator").gameObject.SetActive(false);
                 spinTimer = 0f;
             }
             return;
