@@ -31,6 +31,10 @@ public class MainManager : MonoBehaviour
     [Header("Fade Canvas")]
     public GameObject fadeCanvas;
 
+    [Header("Settings Canvas")]
+    public GameObject settingsCanvas;
+    public GameObject colorBlindController;
+
     public bool isQuestActive()
     {
         return currentQuest.isActive;
@@ -52,6 +56,7 @@ public class MainManager : MonoBehaviour
         SetupDialogueCanvas();
         SetupPauseCanvas();
         SetupFadeCanvas();
+        SetupSettingsCanvas();
     }
 
     private void Update()
@@ -96,6 +101,12 @@ public class MainManager : MonoBehaviour
     void SetupFadeCanvas()
     {
         DontDestroyOnLoad(fadeCanvas.gameObject);
+    }
+
+    void SetupSettingsCanvas()
+    {
+        DontDestroyOnLoad(settingsCanvas.gameObject);
+        DontDestroyOnLoad(colorBlindController);
     }
 
     void SetupDialogueCanvas()
@@ -165,6 +176,7 @@ public class MainManager : MonoBehaviour
         Time.timeScale = 1;
         pauseCanvas.transform.Find("ConfirmPanel").gameObject.SetActive(false);
         pauseCanvas.SetActive(false);
+        settingsCanvas.SetActive(false);
     }
 
 
@@ -230,5 +242,20 @@ public class MainManager : MonoBehaviour
 
         canGameBePaused = true;
         fadeCanvas.SetActive(false);
+    }
+
+    public void HoverOverBack(float size)
+    {
+        settingsCanvas.transform.Find("BackButton").transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+    }
+
+    public void OpenSettings()
+    {
+        settingsCanvas.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+       settingsCanvas.SetActive(false);
     }
 }

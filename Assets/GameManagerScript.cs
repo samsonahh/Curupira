@@ -20,7 +20,26 @@ public class GameManagerScript : MonoBehaviour
 
     public void Button()
     {
-        MainManager.Instance.previousScene = SceneManager.GetActiveScene().name;
+        StartCoroutine(PlayGame());
+    }
+
+    IEnumerator PlayGame()
+    {
+        MainManager.Instance.fadeCanvas.SetActive(true);
+        MainManager.Instance.canGameBePaused = false;
+        MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(0f);
+
+        float timer = 0f;
+
+        while (timer < 2f)
+        {
+            MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(Mathf.MoveTowards(MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().GetAlpha(), 1f, Time.deltaTime / 2));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        MainManager.Instance.previousScene = "Menu";
+
         SceneManager.LoadScene("Main");
     }
 
@@ -32,11 +51,5 @@ public class GameManagerScript : MonoBehaviour
     public void HoverOverSettings(float size)
     {
         GameObject.Find("SettingsButton").transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
-    }
-
-    public void Setting()
-    {
-        MainManager.Instance.previousScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene("Setting");
     }
 }
