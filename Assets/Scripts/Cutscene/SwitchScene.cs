@@ -5,26 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    float timer;
     public float sceneDuration;
     public string targetScene;
 
     private void Start()
     {
-        timer = 0f;
+        StartCoroutine(WaitForScene());
     }
 
-    private void Update()
+    IEnumerator WaitForScene()
     {
+        yield return new WaitForSeconds(sceneDuration);
 
-        if(timer > sceneDuration)
-        {
-            timer = 0f;
-            SceneManager.LoadScene(targetScene);
-        }
-        else
-        {
-            timer += Time.deltaTime;
-        }
+        SceneManager.LoadScene(targetScene);
     }
 }

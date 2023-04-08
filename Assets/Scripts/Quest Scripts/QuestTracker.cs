@@ -50,11 +50,25 @@ public class QuestTracker : MonoBehaviour
 
     public void HandleGoalTypes()
     {
-        if(MainManager.Instance.currentQuest.goals.Length == 1)
+        if (MainManager.Instance.currentQuest.isQuestFullyComplete())
+        {
+            progressText.color = Color.green;
+        }
+        else
+        {
+            progressText.color = Color.red;
+        }
+
+        if (MainManager.Instance.currentQuest.goals.Length == 1)
         {
             if(MainManager.Instance.currentQuest.goals[0].goalType == GoalType.Talk)
             {
                 progressText.text = "";
+                return;
+            }
+            if (MainManager.Instance.currentQuest.goals[0].goalType == GoalType.Defeat)
+            {
+                progressText.text = MainManager.Instance.currentQuest.goals[0].objectName;
                 return;
             }
         }
@@ -68,14 +82,5 @@ public class QuestTracker : MonoBehaviour
         }
 
         progressText.text = progressString;
-
-        if (MainManager.Instance.currentQuest.isQuestFullyComplete())
-        {
-            progressText.color = Color.green;
-        }
-        else
-        {
-            progressText.color = Color.red;
-        }
     }
 }

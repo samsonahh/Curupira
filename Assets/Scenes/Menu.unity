@@ -7770,66 +7770,48 @@ MonoBehaviour:
   dialogueCanvasIsOpened: 0
   mainQuests:
   - isActive: 0
-    title: First Quest
-    description: Talk to the tribe leader for your first quest.
+    title: The Chief's First Request
+    description: Collect branches for the baby nests Branches are located outside
+      the tree.
     sentences:
-    - 'Hey there! I''m Ademir, leader of the Macaw Tribe. '
+    - Hey there Wanderer!
+    - "I\u2019m Ademir, leader of the Macaw Tribe."
     - 'Recently we have started to become more and more endangered. '
     - Our habitat is being destroyed and climate change and wildlife trade is threatening
       our home!
-    - Can you help us gather some materials to rebuild our home?
-    goals:
-    - goalType: 2
-      objectName: 
-      requiredAmount: 0
-      currentAmount: 0
-  - isActive: 0
-    title: RBN Task
-    description: Tutorial To Collect Branches
-    sentences:
-    - 'Around the forest are fallen branches. '
-    - Find and collect the branches and bring them back to the tree.
-    - Click "E" to collect the branch
-    - Bring the branch back to the tree!
-    goals:
-    - goalType: 1
-      objectName: Branch
-      requiredAmount: 1
-      currentAmount: 0
-  - isActive: 0
-    title: RBN Deposit Task
-    description: Player collected one branch
-    sentences:
-    - 'Thank you for the branch! There are still other branches around the forest. '
-    - 'Collect as many as you can! You can hold onto two branches at a time to bring
-      back to me. '
+    - We need your help to gather some materials to rebuild our homes.
+    - "Let\u2019s start off with some branches for our poor babies."
+    - Around the forest are fallen branches.
+    - Find and collect 3 branches and bring them back to me.
     goals:
     - goalType: 1
       objectName: Branch
       requiredAmount: 3
       currentAmount: 0
   - isActive: 0
-    title: Halfway There
-    description: Player collected 5 branches
+    title: Reconstructing Nests
+    description: Rebuild the nests inside the tree.
     sentences:
-    - You're halfway there! Be careful though, some of these branches are located
-      in tricky places!
-    goals: []
+    - 'Excellent! '
+    - These are some fine branches.
+    - Could you please rebuild 3 nests for our birdlings?
+    goals:
+    - goalType: 1
+      objectName: Nest
+      requiredAmount: 3
+      currentAmount: 0
   - isActive: 0
-    title: RBN Finished Task
-    description: 10 Branches have been collected
+    title: Gathering Food
+    description: Collect the various foods around the tree. The babies need to have
+      their lunch for the day
     sentences:
-    - 'Thank you so much for your help! However, you cannot go on yet. I have one
-      last task for you! '
-    goals: []
-  - isActive: 0
-    title: Gather food for tribe
-    description: Find and collect food and materials
-    sentences:
-    - Food is located around the forest, but some are poisonous frmo chemicals released
+    - Thank you Wanderer! These birdlings are already comfortable!
+    - But they do seem to be hungry.
+    - Food is located around the forest, but some are poisonous from chemicals released
       into the air!
     - When you find a food, you must check if it is poisonous or not!
-    - 'Here is the list of foods you must collect: 4 berries, 8 seeds, and 10 leaves.'
+    - Could you gather 4 berries, 8 seeds, and 10 leaves for me?
+    - "Bring them up to me after you\u2019re done."
     goals:
     - goalType: 1
       objectName: Berry
@@ -7844,46 +7826,48 @@ MonoBehaviour:
       requiredAmount: 10
       currentAmount: 0
   - isActive: 0
-    title: Food task finished
-    description: Farewell to continue to quest 2 - beaver
+    title: Feeding Time
+    description: Feed the birdlings.
     sentences:
-    - Thank you so much for your help Wanderer!
-    - You've helped me greatly and my tribe and I wish you well on your journ.ey
-    - Venture on to see what's next!
-    goals: []
+    - Wow, you picked some fresh berries and seeds.
+    - These leaves are high quality too!
+    - "Looks like it\u2019s feeding time for these birdlings."
+    - Could you give them a quick meal and return to me?
+    goals:
+    - goalType: 1
+      objectName: Feed Birds
+      requiredAmount: 3
+      currentAmount: 0
   - isActive: 0
-    title: Dam construction task
-    description: lead player to river
+    title: The River Problem
+    description: Uncover the path that leads to the riverside. Then deal with the
+      beaver and destroy the dam.
     sentences:
-    - Near here is the Amazon River.  You have to locate that river to destroy a
-      dam made by humans!
-    goals: []
+    - Thanks to you, our kids are filled up.
+    - "Now that all the housekeeping work is done, it\u2019s time to address the
+      main issue."
+    - The forest fire is rapidly approaching our territory.
+    - However, in order to fight the fire, we need water from our local river.
+    - "We haven\u2019t been able to shoo that DAM beaver off the dam that blocks
+      the river from flowing."
+    - "I\u2019m afraid we\u2019ll need your help dealing with the beaver and the
+      dam."
+    - Could you head to the riverside and deal with that beaver?
+    goals:
+    - goalType: 0
+      objectName: Dam
+      requiredAmount: 1
+      currentAmount: 0
   - isActive: 0
-    title: At Dam
-    description: player is at the dam
+    title: The Forest Fire
+    description: Defeat the forest fire using the water from the river.
     sentences:
-    - Look at this dam! I tried shooting away the humans but they didn't seem to
-      give a dam!
-    goals: []
-  - isActive: 0
-    title: Forest Fire
-    description: Player is at river
-    sentences:
-    - 'We have the river now, so let''s put out this fire! '
-    - You have to use this bucket to extinguish the fire. To pick it up, press E.
-    goals: []
-  - isActive: 0
-    title: FF - put down bucket
-    description: Player puts down bucket
-    sentences:
-    - 'To put it down, simply press E again. '
-    goals: []
-  - isActive: 0
-    title: End of Fire Boss Quest
-    description: 'Player defeated fire boss through all three phases. '
-    sentences:
-    - 'You did it! Thank you for helping us! '
-    goals: []
+    - FIRE
+    goals:
+    - goalType: 0
+      objectName: Forest Fire
+      requiredAmount: 1
+      currentAmount: 0
   currentQuest:
     isActive: 1
     title: Introduction
@@ -7898,6 +7882,9 @@ MonoBehaviour:
   fadeCanvas: {fileID: 712992908}
   settingsCanvas: {fileID: 1644560266}
   colorBlindController: {fileID: 1752020847}
+  isBeaverBlocked: 1
+  isFireBlocked: 1
+  nestProgress: 000000000000000000000000
 --- !u!4 &1568269894
 Transform:
   m_ObjectHideFlags: 0

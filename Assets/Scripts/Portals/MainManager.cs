@@ -35,6 +35,13 @@ public class MainManager : MonoBehaviour
     public GameObject settingsCanvas;
     public GameObject colorBlindController;
 
+    [Header("Path Blockers")]
+    public bool isBeaverBlocked = true;
+    public bool isFireBlocked = true;
+
+    [Header("Nest Rememberer")]
+    public int[] nestProgress;
+
     public bool isQuestActive()
     {
         return currentQuest.isActive;
