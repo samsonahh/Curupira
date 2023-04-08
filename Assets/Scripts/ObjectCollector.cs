@@ -89,7 +89,7 @@ public class ObjectCollector : MonoBehaviour
             slider.value = (timer / timerMax); // increase the bar by time/Max
             playerManager.isCollecting = true;
         }
-        else if (Input.GetKeyUp(KeyCode.E) && onTop)
+        else if (Input.GetKeyUp(KeyCode.E))
         {
             slider.gameObject.SetActive(false);
             timer = 0;
