@@ -7,8 +7,9 @@ public class AttackState : State
     public ChaseState chaseState;
     private PlayerMovement player;
     private PlayerManager playerManager;
+    PlayerHealthManager playerHealthManager;
     private GameObject beaver;
-    public float attackRange = 2.5f;
+    public float attackRange = 2f;
     public bool isInAttackRange;
     public float distanceFromPlayer;
     public float delayTimer;
@@ -28,6 +29,7 @@ public class AttackState : State
             player.launchDirection = new Vector3(3f * launchDirection.x, launchDirection.y, 3f * launchDirection.z);
             playerManager.isKnocked = true;
             CameraShakeManager.Instance.ShakeCamera(5f, 0.2f);
+            playerHealthManager.playerHealth--;
         }
 
         if (!isInAttackRange)
@@ -50,6 +52,7 @@ public class AttackState : State
         beaver = GameObject.Find("Beaver");
         playerManager = player.GetComponent<PlayerManager>();
         animator = GameObject.Find("Beaver").GetComponentInChildren<Animator>();
+        playerHealthManager = GameObject.Find("PlayerHealthCanvas").GetComponent<PlayerHealthManager>();
     }
 
     private void Update()

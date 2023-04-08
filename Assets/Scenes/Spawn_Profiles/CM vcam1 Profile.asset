@@ -75,10 +75,10 @@ MonoBehaviour:
   active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   mode:
     overrideState: 1
-    value: 2
+    value: 3
   sensitivityDepth:
     overrideState: 0
     value: 1

@@ -13,17 +13,23 @@ public class PortalScript : MonoBehaviour
 
     bool coroutineStarted;
 
+    float delayTimer;
+
     // Start is called before the first frame update
     void Start()
     {
         mainManager = MainManager.Instance;
         fadeCanvas = mainManager.fadeCanvas.GetComponentInChildren<Image>();
+
+        delayTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (touching && !coroutineStarted)
+        delayTimer += Time.deltaTime;
+
+        if (touching && !coroutineStarted && delayTimer > 2)
         {
             coroutineStarted = true;
             StartCoroutine(Teleport());

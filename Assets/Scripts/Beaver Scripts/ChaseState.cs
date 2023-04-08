@@ -11,7 +11,7 @@ public class ChaseState : State
     public bool outOfChaseRange;
     private PlayerMovement player;
     private GameObject beaver;
-    public float attackRange = 2.5f;
+    public float attackRange = 2f;
     public float maxChaseDistance = 12f;
     public float distanceFromPlayer;
     public Vector3 playerLagPosition;

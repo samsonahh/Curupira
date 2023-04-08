@@ -68,7 +68,10 @@ public class MainManager : MonoBehaviour
 
     private void UnFadeCanvas(Scene current, Scene next)
     {
-        StartCoroutine(FadeIn());
+        if(SceneManager.GetActiveScene().name != "Menu")
+        {
+            StartCoroutine(FadeIn());
+        }
     }
 
     private void GetQuestGiver(Scene current, Scene next)

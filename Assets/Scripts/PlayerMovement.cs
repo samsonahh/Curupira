@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     float fallTimer;
     float groundedTimer;
     public float knockedTimer;
-    public float launchVelocity = 3f;
+    public float launchVelocity = 6f;
     public Vector3 launchDirection;
     //Player Bools
     public PlayerManager playerManager;
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if(knockedTimer > 2)
         {
             playerManager.isKnocked = false;
-            launchVelocity = 3f;
+            launchVelocity = 6f;
         }
     }
 
