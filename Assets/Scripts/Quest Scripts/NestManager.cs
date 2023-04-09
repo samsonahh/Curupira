@@ -7,25 +7,27 @@ using UnityEngine.UI;
 public class NestManager : MonoBehaviour
 {
     private PlayerManager playerManager;
-    private Canvas canvas;
+    public Canvas canvas;
     private Camera mainCamera;
-    Slider slider;
-    TMP_Text infoText;
+    public Slider slider;
+    public TMP_Text infoText;
     float timer;
     float timerMax = 2f;
     public bool onTop = false;
     public float distanceFromObject;
 
     public string objectName;
+    public int nestNum;
+    public int nestType;
 
+    public GameObject nest, nestWithBirds;
+
+    public bool canBeCollected = true;
 
     // Start is called before the first frame update
     void Start()
     {
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        slider = GetComponentInChildren<Slider>();
-        infoText = GetComponentInChildren<TMP_Text>();
-        canvas = GetComponentInChildren<Canvas>();
         mainCamera = Camera.main;
 
         slider.gameObject.SetActive(false);
@@ -35,6 +37,28 @@ public class NestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (MainManager.Instance.nestProgress[nestNum] == 0)
+        {
+            objectName = "Nest";
+            nest.SetActive(false);
+            nestWithBirds.SetActive(false);
+        }
+
+        if (MainManager.Instance.nestProgress[nestNum] == 1)
+        {
+            objectName = "Feed Birds";
+            nest.SetActive(true);
+            nestWithBirds.SetActive(false);
+            canBeCollected = true;
+        }
+
+        if (MainManager.Instance.nestProgress[nestNum] == 2)
+        {
+            objectName = "Bird Nest";
+            nest.SetActive(true);
+            nestWithBirds.SetActive(true);
+        }
+
         distanceFromObject = Vector3.Distance(transform.position, playerManager.transform.position);
 
         if (!IsObjectInCurrentQuest())
@@ -44,7 +68,7 @@ public class NestManager : MonoBehaviour
             return;
         }
 
-        if (distanceFromObject < 2f)
+        if (distanceFromObject < 4f)
         {
             if (!onTop)
             {
@@ -68,10 +92,9 @@ public class NestManager : MonoBehaviour
             slider.value = 0; //reset the timer
         }
 
-        if (timer > timerMax && Input.GetKey(KeyCode.E) && onTop)
+        if (timer > timerMax && Input.GetKey(KeyCode.E) && onTop && canBeCollected)
         {
             playerManager.isCollecting = false;
-            Destroy(gameObject);
             int index = 0;
             for (int i = 0; i < MainManager.Instance.currentQuest.goals.Length; i++)
             {
@@ -81,8 +104,24 @@ public class NestManager : MonoBehaviour
                 }
             }
             MainManager.Instance.currentQuest.goals[index].currentAmount++;
+            if (MainManager.Instance.nestProgress[nestNum] == 0)
+            {
+                nest.SetActive(true);
+                nestWithBirds.SetActive(false);
+                MainManager.Instance.nestProgress[nestNum]++;
+                canBeCollected = false;
+                return;
+            }
+            if (MainManager.Instance.nestProgress[nestNum] == 1)
+            {
+                nest.SetActive(true);
+                nestWithBirds.SetActive(true);
+                MainManager.Instance.nestProgress[nestNum]++;
+                canBeCollected = false;
+                return;
+            }
         }
-        else if (Input.GetKey(KeyCode.E) && onTop)
+        else if (Input.GetKey(KeyCode.E) && onTop && canBeCollected)
         {
             slider.gameObject.SetActive(true);
             timer += Time.deltaTime; // start the timer
