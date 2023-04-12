@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SwitchScene : MonoBehaviour
 {
     public float sceneDuration;
-    public string targetScene;
+    public string targetScene = "Main";
 
     private void Start()
     {

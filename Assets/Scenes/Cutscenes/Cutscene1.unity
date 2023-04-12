@@ -377,7 +377,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 465987706}
-  - component: {fileID: 465987705}
   - component: {fileID: 465987704}
   m_Layer: 0
   m_Name: SwitchScene
@@ -400,20 +399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneDuration: 7.5
   targetScene: Main
---- !u!114 &465987705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465987703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0766d26ad99f2404a876d3e26ca00053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneDuration: 0
-  targetScene: 
 --- !u!4 &465987706
 Transform:
   m_ObjectHideFlags: 0
