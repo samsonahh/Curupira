@@ -8,7 +8,6 @@ public class WallManager : MonoBehaviour
     public Slider hpBar;
     public float hp;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +19,18 @@ public class WallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpBar.value = hp;
+        if(hp > 0)
+        {
+            hpBar.value = hp;
+        }
 
         if(hp < 0)
         {
-            if(MainManager.Instance.mainQuestIndex == 2)
+            if(MainManager.Instance.mainQuestIndex == 4)
             {
                 Destroy(GameObject.Find("Beaver"));
+                GameObject.Find("PlayerHealthCanvas").SetActive(false);
+                hpBar.gameObject.SetActive(false);
                 MainManager.Instance.currentQuest.goals[0].currentAmount++;
                 Destroy(gameObject);
             }
