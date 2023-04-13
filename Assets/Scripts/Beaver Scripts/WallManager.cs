@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WallManager : MonoBehaviour
 {
     public Slider hpBar;
     public float hp;
+
+    bool coroutineStarted = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,32 +22,39 @@ public class WallManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hp > 0)
-        {
-            hpBar.value = hp;
-        }
+        hpBar.value = hp;
 
         if(hp < 0)
         {
-            if(MainManager.Instance.mainQuestIndex == 4)
+            if(MainManager.Instance.mainQuestIndex == 4 && !coroutineStarted)
             {
-                Destroy(GameObject.Find("Beaver"));
-                GameObject.Find("PlayerHealthCanvas").SetActive(false);
-                hpBar.gameObject.SetActive(false);
-                MainManager.Instance.currentQuest.goals[0].currentAmount++;
-                Destroy(gameObject);
+                hp = 0;
+                StartCoroutine(QueueCutscene());
+                coroutineStarted = true;
             }
         }
     }
 
-   /* private void OnTriggerEnter(Collider other)
+    IEnumerator QueueCutscene()
     {
-        if(other.name == "Body")
+        MainManager.Instance.fadeCanvas.SetActive(true);
+        MainManager.Instance.canGameBePaused = false;
+        MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(0f);
+
+        float timer = 0f;
+
+        while (timer < 1f)
         {
-            if (beaver.GetComponent<StateManager>().currentState == chargeState)
-            {
-                hp -= chargeState.chargeVelocity / 5f;
-            }
+            MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(Mathf.MoveTowards(MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().GetAlpha(), 1f, Time.deltaTime));
+            timer += Time.deltaTime;
+            yield return null;
         }
-    }*/
+
+        MainManager.Instance.currentQuest.goals[0].currentAmount++;
+        MainManager.Instance.isBeaverDefeated = true;
+
+        MainManager.Instance.previousScene = "Main";
+
+        SceneManager.LoadScene("BeaverCutscene");
+    }
 }

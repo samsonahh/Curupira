@@ -42,6 +42,9 @@ public class MainManager : MonoBehaviour
     [Header("Nest Rememberer")]
     public int[] nestProgress;
 
+    [Header("Beaver Rememberer")]
+    public bool isBeaverDefeated = false;
+
     public bool isQuestActive()
     {
         return currentQuest.isActive;

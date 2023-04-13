@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Phase3State : State
 {
     PlayerManager player;
     FireBossManager fireManager;
 
     bool coroutineStarted = false;
+    bool cutsceneCoroutineStarted = false;
 
     public GameObject fireBallPrefab;
     public GameObject smartFireBallPrefab;
@@ -34,12 +35,39 @@ public class Phase3State : State
 
         if(fireManager.currentHealth <= 0)
         {
-            coroutineStarted = false;
+            if (!cutsceneCoroutineStarted)
+            {
+                cutsceneCoroutineStarted = true;
+                StopAllCoroutines();
+                StartCoroutine(QueueCutscene());
+            }
             Destroy(arm);
-            Destroy(fireManager.gameObject);
         }
 
         return this;
+    }
+
+    IEnumerator QueueCutscene()
+    {
+        MainManager.Instance.fadeCanvas.SetActive(true);
+        MainManager.Instance.canGameBePaused = false;
+        MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(0f);
+
+        float timer = 0f;
+
+        while (timer < 1f)
+        {
+            MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().SetAlpha(Mathf.MoveTowards(MainManager.Instance.fadeCanvas.GetComponentInChildren<CanvasRenderer>().GetAlpha(), 1f, Time.deltaTime));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        if(MainManager.Instance.mainQuestIndex == 5)
+        {
+            MainManager.Instance.currentQuest.goals[0].currentAmount++;
+        }
+
+        SceneManager.LoadScene("EndCutscene");
     }
 
     IEnumerator Phase3()
