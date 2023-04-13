@@ -7,17 +7,17 @@ public class FireSceneManager : MonoBehaviour
     public GameObject fireBossCanvas, fireBoss;
     public FireBossManager fireBossManager;
 
-    FireIdleState fireIdleState;
+    public FireIdleState fireIdleState;
 
     void Start()
     {
-        fireIdleState = GameObject.Find("FireBoss").GetComponentInChildren<FireIdleState>();
     }
 
     private void Update()
     {
         if (fireIdleState.IsPlayerInRange && fireBoss.activeSelf)
         {
+            fireBoss.SetActive(true);
             fireBossManager.enabled = true;
             fireBossCanvas.SetActive(true);
         }

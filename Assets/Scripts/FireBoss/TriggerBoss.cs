@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class TriggerBoss : MonoBehaviour
 {
-    FireIdleState fireIdleState;
+    public GameObject fireBoss;
+    public FireIdleState fireIdleState;
 
     // Start is called before the first frame update
     void Start()
     {
-        fireIdleState = GameObject.Find("FireBoss").GetComponentInChildren<FireIdleState>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            fireBoss.SetActive(true);
             fireIdleState.IsPlayerInRange = true;
         }
     }

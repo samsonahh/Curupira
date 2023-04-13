@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &26743191
 Transform:
   m_ObjectHideFlags: 0
@@ -156,9 +156,8 @@ Transform:
   - {fileID: 779825087}
   - {fileID: 2010231561}
   - {fileID: 872011938}
-  - {fileID: 517003741}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &26743192
 MonoBehaviour:
@@ -1079,6 +1078,7 @@ MonoBehaviour:
   fireBossCanvas: {fileID: 872011937}
   fireBoss: {fileID: 26743190}
   fireBossManager: {fileID: 26743192}
+  fireIdleState: {fileID: 1193701481}
 --- !u!4 &271876716
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,7 +1091,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292123947
 GameObject:
@@ -1677,11 +1677,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517003740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4300003, y: 0.24000001, z: -3.8400002}
-  m_LocalScale: {x: 3.8539295, y: 2.6006, z: 26.464884}
+  m_LocalPosition: {x: 1.0750008, y: 0.36, z: 11.16}
+  m_LocalScale: {x: 9.634824, y: 3.9009, z: 26.464884}
   m_Children: []
-  m_Father: {fileID: 26743191}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &517003742
 MonoBehaviour:
@@ -1695,6 +1695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017cb085efbd5284692ab69ef9ad4d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBoss: {fileID: 26743190}
+  fireIdleState: {fileID: 1193701481}
 --- !u!65 &517003743
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2620,7 +2622,7 @@ Transform:
   - {fileID: 1956958559}
   - {fileID: 884249175}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &859388305
 GameObject:
@@ -3013,7 +3015,7 @@ Transform:
   - {fileID: 2005225207}
   - {fileID: 2109737893}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &940619300
 GameObject:
@@ -4905,7 +4907,7 @@ Transform:
   m_Children:
   - {fileID: 186026044}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650040470
 GameObject:
@@ -6239,7 +6241,7 @@ Transform:
   - {fileID: 325884071}
   - {fileID: 1720201139}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2040799133
 GameObject:
@@ -6284,6 +6286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc28aaae4192eb46bad28f5d78fda8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBossManager: {fileID: 26743192}
   isInteractable: 0
   pickedUp: 0
   isNearWater: 0

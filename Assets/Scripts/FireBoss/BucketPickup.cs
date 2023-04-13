@@ -6,7 +6,7 @@ using TMPro;
 
 public class BucketPickup : MonoBehaviour
 {
-    FireBossManager fireBossManager;
+    public FireBossManager fireBossManager;
 
     public bool isInteractable;
     public bool pickedUp;
@@ -37,7 +37,6 @@ public class BucketPickup : MonoBehaviour
         fillText = GameObject.Find("FillText").GetComponent<TMP_Text>();
 
         pmScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        fireBossManager = GameObject.Find("FireBoss").GetComponent<FireBossManager>();
         water = GameObject.Find("WaterLevel");
         waterAnim = Instantiate(waterCollecting, gameObject.transform, false);
         waterAnim.name = "Particles";
