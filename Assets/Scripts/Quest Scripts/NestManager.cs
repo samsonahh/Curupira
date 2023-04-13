@@ -20,7 +20,7 @@ public class NestManager : MonoBehaviour
     public int nestNum;
     public int nestType;
 
-    public GameObject nest, nestWithBirds;
+    public GameObject nest, nestWithBirds, nestSpot;
 
     public bool canBeCollected = true;
 
@@ -42,6 +42,7 @@ public class NestManager : MonoBehaviour
             objectName = "Nest";
             nest.SetActive(false);
             nestWithBirds.SetActive(false);
+            nestSpot.SetActive(true);
         }
 
         if (MainManager.Instance.nestProgress[nestNum] == 1)
@@ -49,6 +50,7 @@ public class NestManager : MonoBehaviour
             objectName = "Feed Birds";
             nest.SetActive(true);
             nestWithBirds.SetActive(false);
+            nestSpot.SetActive(false);
             canBeCollected = true;
         }
 
@@ -56,6 +58,7 @@ public class NestManager : MonoBehaviour
         {
             objectName = "Bird Nest";
             nest.SetActive(true);
+            nestSpot.SetActive(false);
             nestWithBirds.SetActive(true);
         }
 
