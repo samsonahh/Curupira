@@ -7860,9 +7860,20 @@ MonoBehaviour:
       currentAmount: 0
   - isActive: 0
     title: The Forest Fire
-    description: Defeat the forest fire using the water from the river.
+    description: Uncover the path that leads to the forest fire. Defeat the forest
+      fire using the water from the river.
     sentences:
-    - FIRE
+    - Thank you so much for dealing with that DAM beaver.
+    - With the beaver and dam gone, we can finally have access to running water again.
+    - "But I\u2019m afraid that's not all. I\u2019ll have to trouble you again."
+    - "We\u2019ve heard rumors of a fire monster approaching our forest."
+    - 'Everyday neighboring forests have been ravaged by this fire monster as it
+      burns these forests to ashes. '
+    - With the river accessible we can finally face the fire monster head on.
+    - That is the only advantage that our small quaint village has.
+    - So, I plead with you, please save us and our home. Our future lies in your
+      hands, wanderer.
+    - You are our only hope. Please take down that fire monster.
     goals:
     - goalType: 0
       objectName: Forest Fire
@@ -7885,6 +7896,7 @@ MonoBehaviour:
   isBeaverBlocked: 1
   isFireBlocked: 1
   nestProgress: 000000000000000000000000
+  isBeaverDefeated: 0
 --- !u!4 &1568269894
 Transform:
   m_ObjectHideFlags: 0
