@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Tree_Leaves
-    second: {fileID: 2100000, guid: c3b0f3d30d072514cb6dbf4608358e25, type: 2}
+    second: {fileID: 2100000, guid: 51f973375f210724f814f7020777b74a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -46,7 +46,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 2
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
