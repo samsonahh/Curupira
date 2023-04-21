@@ -115,6 +115,16 @@ public class PlayerMovement : MonoBehaviour
             Vector3 rotatedMovement = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward; // True direction movement from get axis raw
             controller.Move(rotatedMovement * speed * Time.fixedDeltaTime); //Doesn't move forward when angle is slowly changing, only moves the true direction of button pressed
         }
+        if((Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S)))
+        {
+            movement.z = 0f;
+            moveDirection.z = 0f;
+        }
+        if ((Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D)))
+        {
+            movement.x = 0f;
+            moveDirection.x = 0f;
+        }
         if (movement == Vector3.zero)
         {
             playerManager.isMoving = false;
