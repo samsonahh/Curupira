@@ -970,8 +970,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -80
-    m_MaxValue: 80
+    m_MinValue: -35
+    m_MaxValue: 35
     m_Wrap: 0
     m_Recentering:
       m_enabled: 0

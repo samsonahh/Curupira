@@ -1408,7 +1408,7 @@ GameObject:
   - component: {fileID: 292879328}
   - component: {fileID: 292879327}
   - component: {fileID: 292879326}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1986,8 +1986,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -70
-    m_MaxValue: 70
+    m_MinValue: -35
+    m_MaxValue: 35
     m_Wrap: 0
     m_Recentering:
       m_enabled: 0
@@ -2203,7 +2203,7 @@ GameObject:
   - component: {fileID: 743820220}
   - component: {fileID: 743820219}
   - component: {fileID: 743820218}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3612,7 +3612,7 @@ GameObject:
   - component: {fileID: 1079959842}
   - component: {fileID: 1079959841}
   - component: {fileID: 1079959840}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: CanHit
   m_Icon: {fileID: 0}
@@ -3863,7 +3863,7 @@ GameObject:
   - component: {fileID: 1129296096}
   - component: {fileID: 1129296095}
   - component: {fileID: 1129296094}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4205,7 +4205,7 @@ GameObject:
   - component: {fileID: 1224727481}
   - component: {fileID: 1224727480}
   - component: {fileID: 1224727479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: CanHit
   m_Icon: {fileID: 0}
@@ -4549,7 +4549,7 @@ GameObject:
   - component: {fileID: 1369004110}
   - component: {fileID: 1369004109}
   - component: {fileID: 1369004108}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,7 +4964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1443935182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boundaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5130,7 +5130,7 @@ GameObject:
   - component: {fileID: 1553168864}
   - component: {fileID: 1553168863}
   - component: {fileID: 1553168862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5894,7 +5894,7 @@ GameObject:
   - component: {fileID: 2099755099}
   - component: {fileID: 2099755098}
   - component: {fileID: 2099755097}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: CanHit
   m_Icon: {fileID: 0}

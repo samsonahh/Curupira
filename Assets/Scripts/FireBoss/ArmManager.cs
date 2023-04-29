@@ -14,7 +14,7 @@ public class ArmManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        transform.position = GameObject.Find("ArmModel").transform.position;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4470,8 +4470,8 @@ MonoBehaviour:
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 1
-    m_MinValue: -80
-    m_MaxValue: 80
+    m_MinValue: -35
+    m_MaxValue: 35
     m_Wrap: 0
     m_Recentering:
       m_enabled: 0
@@ -5475,7 +5475,7 @@ GameObject:
   m_Component:
   - component: {fileID: 728466988}
   - component: {fileID: 728466987}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PathBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7227,7 +7227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030179929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.31, y: 3.2188845, z: -22.74}
+  m_LocalPosition: {x: -6.31, y: 3.6411157, z: -24.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8438,7 +8438,7 @@ GameObject:
   - component: {fileID: 1237028011}
   - component: {fileID: 1237028010}
   - component: {fileID: 1237028009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8567,7 +8567,7 @@ GameObject:
   - component: {fileID: 1265604345}
   - component: {fileID: 1265604344}
   - component: {fileID: 1265604343}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BeaverBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8870,7 +8870,7 @@ GameObject:
   - component: {fileID: 1345886131}
   - component: {fileID: 1345886130}
   - component: {fileID: 1345886129}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11736,7 +11736,7 @@ GameObject:
   - component: {fileID: 1897718911}
   - component: {fileID: 1897718910}
   - component: {fileID: 1897718909}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13003,7 +13003,7 @@ GameObject:
   - component: {fileID: 7081528550208162654}
   - component: {fileID: 7081528550208162655}
   - component: {fileID: 7081528550208162652}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: FireBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13084,7 +13084,7 @@ GameObject:
   - component: {fileID: 7081528550499426090}
   - component: {fileID: 7081528550499426100}
   - component: {fileID: 7081528550499426101}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13217,7 +13217,7 @@ GameObject:
   - component: {fileID: 7305011480545208386}
   - component: {fileID: 7305011480545208387}
   - component: {fileID: 7305011480545208384}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BeaverBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13395,7 +13395,7 @@ GameObject:
   - component: {fileID: 7305011480791088182}
   - component: {fileID: 7305011480791088168}
   - component: {fileID: 7305011480791088169}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Info Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
