@@ -37,7 +37,7 @@ public class SnakeEyes : MonoBehaviour
             timer = 0;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir.normalized, 2 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir.normalized, Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

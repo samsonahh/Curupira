@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement;
 public class SnakeKillState : State
 {
     bool coroutineStarted;
+    public GameObject target;
+
+    private void Start()
+    {
+        target = GameObject.Find("SnakeTarget");
+    }
 
     public override State RunCurrentState()
     {
         GameObject.Find("Player").GetComponent<PlayerManager>().isKnocked = true;
+        target.transform.position = new Vector3(GameObject.Find("Player").transform.position.x, 1000, GameObject.Find("Player").transform.position.z);
         if (!coroutineStarted)
         {
             coroutineStarted = true;

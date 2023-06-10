@@ -11,9 +11,10 @@ public class SnakeScoutState : State
     public SnakeChaseState snakeChaseState;
 
     PlayerManager playerManager;
-    float timer = 0f;
-    float caughtTime = 3f;
+    public float timer = 0f;
+    public float caughtTime = 3f;
     public bool isInArea;
+    public GameObject target;
 
     public bool isInsideSnakeEyes;
 
@@ -21,11 +22,14 @@ public class SnakeScoutState : State
 
     private void Start()
     {
+        target = GameObject.Find("SnakeTarget");
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 
     public override State RunCurrentState()
     {
+        target.transform.position = new Vector3(86f, 4f, 40f);
+
         Vignette vignette;
         PostProcessProfile profile = cinemachinePostProcessing.m_Profile;
         profile.TryGetSettings(out vignette);
@@ -56,9 +60,10 @@ public class SnakeScoutState : State
                 timer = 0;
             }
         }
-        if(timer > caughtTime)
+        if(timer >= caughtTime)
         {
             vignette.intensity.value = 0.65f;
+            timer = caughtTime;
             return snakeChaseState;
         }
         return this;

@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using Cinemachine;
+using Cinemachine.PostFX;
 
 public class SnakeChaseState : State
 {
     public SnakeKillState snakeKillState;
+    public SnakeScoutState snakeScoutState;
     public GameObject target;
 
     GameObject player;
     GameObject snakeHead;
     float distanceFromPlayer;
+
+    public bool isPlayerHidden;
+
+    public CinemachinePostProcessing cinemachinePostProcessing;
 
     private void Start()
     {
@@ -37,6 +46,16 @@ public class SnakeChaseState : State
             {
                 return snakeKillState;
             }
+        }
+
+        if (isPlayerHidden)
+        {
+            Vignette vignette;
+            PostProcessProfile profile = cinemachinePostProcessing.m_Profile;
+            profile.TryGetSettings(out vignette);
+            vignette.intensity.value = 0;
+            snakeScoutState.timer = 0;
+            return snakeScoutState;
         }
 
         return this;

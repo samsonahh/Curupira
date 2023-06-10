@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     public float speed = 3.5f;
     float sprintSpeed = 6f;
-    float crouchSpeed = 1.5f;
+    float crouchSpeed = 2f;
     public float rotationSmoothTime = 0.1f;
     float currentAngle;
     float currentAngleVelocity;
