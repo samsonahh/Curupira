@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using Cinemachine;
+using Cinemachine.PostFX;
 
 public class PortalScript : MonoBehaviour
 {
@@ -13,15 +17,23 @@ public class PortalScript : MonoBehaviour
 
     bool coroutineStarted;
 
+    public CinemachinePostProcessing cinemachinePostProcessing;
+
     float delayTimer;
 
     // Start is called before the first frame update
     void Start()
     {
+        cinemachinePostProcessing = FindObjectOfType<CinemachinePostProcessing>();
         mainManager = MainManager.Instance;
         fadeCanvas = mainManager.fadeCanvas.GetComponentInChildren<Image>();
 
         delayTimer = 0f;
+
+        Vignette vignette;
+        PostProcessProfile profile = cinemachinePostProcessing.m_Profile;
+        profile.TryGetSettings(out vignette);
+        vignette.intensity.value = 0;
     }
 
     // Update is called once per frame
