@@ -21,7 +21,7 @@ public class Snake : MonoBehaviour
         {
             segments[i] = Instantiate(segment, transform);
             segments[i].name = "Segment " + i.ToString();
-            segments[i].transform.position = transform.position + i * 1.5f * Vector3.forward;
+            segments[i].transform.position = transform.position;
         }
     }
 

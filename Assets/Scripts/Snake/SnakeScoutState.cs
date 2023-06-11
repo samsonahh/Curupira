@@ -28,7 +28,7 @@ public class SnakeScoutState : State
 
     public override State RunCurrentState()
     {
-        target.transform.position = new Vector3(86f, 4f, 40f);
+        target.transform.position = new Vector3(150f, 4f, 40f);
 
         Vignette vignette;
         PostProcessProfile profile = cinemachinePostProcessing.m_Profile;

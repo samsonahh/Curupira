@@ -42,7 +42,7 @@ public class SnakeChaseState : State
         {
             distanceFromPlayer = Vector3.Distance(player.transform.position, snakeHead.transform.position);
 
-            if(distanceFromPlayer < 1f && MainManager.Instance.canGameBePaused)
+            if(distanceFromPlayer < 0.5f && MainManager.Instance.canGameBePaused)
             {
                 return snakeKillState;
             }
@@ -50,10 +50,9 @@ public class SnakeChaseState : State
 
         if (isPlayerHidden)
         {
-            Vignette vignette;
             PostProcessProfile profile = cinemachinePostProcessing.m_Profile;
-            profile.TryGetSettings(out vignette);
-            vignette.intensity.value = 0;
+            StopAllCoroutines();
+            StartCoroutine(FadeToNoVignette(profile));
             snakeScoutState.timer = 0;
             return snakeScoutState;
         }
@@ -68,5 +67,19 @@ public class SnakeChaseState : State
             snakeHead = GameObject.Find("Segment 0");
             yield return null;
         }
+    }
+
+    IEnumerator FadeToNoVignette(PostProcessProfile profile)
+    {
+        Vignette vignette;
+        profile.TryGetSettings(out vignette);
+        float timer = 0f;
+        while(timer < 1f)
+        {
+            timer += Time.deltaTime;
+            vignette.intensity.value = (0.6f - timer * 0.6f);
+            yield return null;
+        }
+        vignette.intensity.value = 0;
     }
 }
