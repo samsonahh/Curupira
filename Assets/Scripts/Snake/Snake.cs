@@ -5,7 +5,9 @@ using UnityEditor;
 
 public class Snake : MonoBehaviour
 {
+    public GameObject head; // head prefab
     public GameObject segment; // segment prefab
+    public GameObject tail; // tail prefab
     public GameObject target;
 
     public int numberOfSegments;
@@ -19,6 +21,20 @@ public class Snake : MonoBehaviour
 
         for (int i = 0; i < numberOfSegments; i++)
         {
+            if(i == 0)
+            {
+                segments[i] = Instantiate(head, transform);
+                segments[i].name = "Segment " + i.ToString();
+                segments[i].transform.position = transform.position;
+                continue;
+            }
+            if(i == numberOfSegments - 1)
+            {
+                segments[i] = Instantiate(tail, transform);
+                segments[i].name = "Segment " + i.ToString();
+                segments[i].transform.position = transform.position;
+                continue;
+            }
             segments[i] = Instantiate(segment, transform);
             segments[i].name = "Segment " + i.ToString();
             segments[i].transform.position = transform.position;
