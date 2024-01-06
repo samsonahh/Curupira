@@ -9650,20 +9650,20 @@ MonoBehaviour:
     - Food is located around the forest, but some are poisonous from chemicals released
       into the air!
     - When you find a food, you must check if it is poisonous or not!
-    - Could you gather 4 berries, 8 seeds, and 10 leaves for me?
+    - Could you gather 3 berries, 3 seeds, and 3 leaves for me?
     - "Bring them up to me after you\u2019re done."
     goals:
     - goalType: 1
       objectName: Berry
-      requiredAmount: 4
+      requiredAmount: 3
       currentAmount: 0
     - goalType: 1
       objectName: Seed
-      requiredAmount: 8
+      requiredAmount: 3
       currentAmount: 0
     - goalType: 1
       objectName: Leaf
-      requiredAmount: 10
+      requiredAmount: 3
       currentAmount: 0
   - isActive: 0
     title: Feeding Time

@@ -202,7 +202,6 @@ public class MainManager : MonoBehaviour
         Time.timeScale = 1;
         pauseCanvas.transform.Find("ConfirmPanel").gameObject.SetActive(false);
 
-        nestProgress = new int[3];
         pauseCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
@@ -217,6 +216,7 @@ public class MainManager : MonoBehaviour
         isFireBlocked = true;
         isBeaverDefeated = false;
 
+        nestProgress = new int[3];
         mainQuestIndex = -1;
         currentQuest.isActive = true;
         currentQuest.title = "Introduction";
