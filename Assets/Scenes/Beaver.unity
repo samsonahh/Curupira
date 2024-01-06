@@ -4008,20 +4008,6 @@ Transform:
   m_Father: {fileID: 1331055279}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1179358187
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7962199819707998590}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.71428573
-  m_Height: 2.857143
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.71428573, z: 0}
 --- !u!1 &1197990524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,10 +4099,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.25
+  m_Height: 1.5
   m_Direction: 2
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1 &1219976309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,6 +4865,7 @@ MonoBehaviour:
   mainManager: {fileID: 0}
   touching: 0
   fadeCanvas: {fileID: 0}
+  cinemachinePostProcessing: {fileID: 0}
 --- !u!65 &1443575249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7685,7 +7672,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7292658345216818116}
   - component: {fileID: 3734775969799627198}
-  - component: {fileID: 1179358187}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged

@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class PauseCanvasManager : MonoBehaviour
 {
+    public Button resetButton;
     public Button quitButton;
     public Button resumeButton;
     public Button settingsButton;
     public GameObject confirmPanel;
-    public Button yesButton;
+    public Button yesButtonQuit;
+    public Button yesButtonReset;
     public Button noButton;
+    public void HoverReset(float size)
+    {
+        resetButton.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+    }
 
     public void HoverQuit(float size)
     {
@@ -27,9 +33,14 @@ public class PauseCanvasManager : MonoBehaviour
         settingsButton.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
     }
 
-    public void HoverYes(float size)
+    public void HoverYesQuit(float size)
     {
-        yesButton.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+        yesButtonQuit.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+    }
+
+    public void HoverYesReset(float size)
+    {
+        yesButtonReset.transform.LeanScale(new Vector2(size, size), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
     }
 
     public void HoverNo(float size)
@@ -50,9 +61,24 @@ public class PauseCanvasManager : MonoBehaviour
         confirmPanel.SetActive(false);
     }
 
-    public void OpenConfirm()
+    public void OpenConfirmQuit()
     {
         confirmPanel.SetActive(true);
+
+        yesButtonReset.gameObject.SetActive(false);
+        yesButtonQuit.gameObject.SetActive(true);
+
+        confirmPanel.transform.localScale = Vector3.zero;
+        confirmPanel.LeanScale(new Vector3(1, 1, 1), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
+    }
+
+    public void OpenConfirmReset()
+    {
+        confirmPanel.SetActive(true);
+
+        yesButtonReset.gameObject.SetActive(true);
+        yesButtonQuit.gameObject.SetActive(false);
+
         confirmPanel.transform.localScale = Vector3.zero;
         confirmPanel.LeanScale(new Vector3(1, 1, 1), 0.5f).setEaseOutQuart().setIgnoreTimeScale(true);
     }

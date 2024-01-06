@@ -49,11 +49,10 @@ public class ChaseState : State
                 chargeState.direction = new Vector3(player.transform.position.x, 0, player.transform.position.z) - beaver.transform.position;
                 chargeState.doneWithCharge = false;
                 chargeState.chargeTimer = 0f;
-                chargeState.chargeVelocity = distanceFromPlayer / 5f;
-                chargeState.velocityWithAcceleration = distanceFromPlayer / 5f;
+                chargeState.chargeVelocity = distanceFromPlayer * 1f;
+                chargeState.velocityWithAcceleration = chargeState.chargeVelocity;
                 chargeState.targetRotation = Quaternion.LookRotation(new Vector3(player.transform.position.x, 0, player.transform.position.z) - beaver.transform.position, Vector3.up);
                 chargeState.delayTimer = 0f;
-                beaver.transform.LookAt(player.transform.position);
                 animator.SetBool("isIdle", false);
                 return chargeState;
             }

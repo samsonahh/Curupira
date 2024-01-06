@@ -28,11 +28,10 @@ public class BeaverManager : MonoBehaviour
         {
             if (other.gameObject == wall.gameObject)
             { 
-                wall.hp-=chargeState.chargeVelocity / 15f;
+                wall.hp-=chargeState.chargeVelocity / 50f;
                 chargeState.doneWithCharge = true;
                 chargeState.direction = Vector3.zero;
                 chargeState.playerLagPosition = Vector3.zero;
-                //GameObject.Find("Eyes").transform.localRotation = Quaternion.identity;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 animator.Play("Get Hit");
                 chargeState.chargeVelocity = 0f;
@@ -43,7 +42,6 @@ public class BeaverManager : MonoBehaviour
                 chargeState.doneWithCharge = true;
                 chargeState.direction = Vector3.zero;
                 chargeState.playerLagPosition = Vector3.zero;
-                //GameObject.Find("Eyes").transform.localRotation = Quaternion.identity;
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
                 animator.Play("Get Hit");
                 chargeState.chargeVelocity = 0f;

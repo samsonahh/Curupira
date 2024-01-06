@@ -13,6 +13,8 @@ public class Admin : MonoBehaviour
 
     private void Update()
     {
+        if (!MainManager.Instance.Admin) return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ToScene("Main");

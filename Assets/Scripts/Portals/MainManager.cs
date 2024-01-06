@@ -45,6 +45,10 @@ public class MainManager : MonoBehaviour
     [Header("Beaver Rememberer")]
     public bool isBeaverDefeated = false;
 
+    [Header("Admin panel")]
+    public GameObject adminPanel;
+    public bool Admin = false;
+
     public bool isQuestActive()
     {
         return currentQuest.isActive;
@@ -79,6 +83,18 @@ public class MainManager : MonoBehaviour
             }
             HandlePause();
         }
+
+        HandleAdminPanel();
+    }
+
+    void HandleAdminPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Admin = !Admin;
+        }
+
+        adminPanel.SetActive(Admin);
     }
 
     private void UnFadeCanvas(Scene current, Scene next)
@@ -162,7 +178,6 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(pauseCanvas.gameObject);
         pauseCanvas.gameObject.SetActive(false);
     }
-
     void HandlePause()
     {
         if (isGamePaused && canGameBePaused)
@@ -178,6 +193,7 @@ public class MainManager : MonoBehaviour
     {
         Time.timeScale = 0;
         pauseCanvas.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void UnPauseGame()
@@ -185,15 +201,34 @@ public class MainManager : MonoBehaviour
         isGamePaused = false;
         Time.timeScale = 1;
         pauseCanvas.transform.Find("ConfirmPanel").gameObject.SetActive(false);
+
+        nestProgress = new int[3];
         pauseCanvas.SetActive(false);
         settingsCanvas.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void ResetGame()
+    {
+        previousScene = "Menu";
+        UnPauseGame();
+        SceneManager.LoadScene("Main");
+        isBeaverBlocked = true;
+        isFireBlocked = true;
+        isBeaverDefeated = false;
+
+        mainQuestIndex = -1;
+        currentQuest.isActive = true;
+        currentQuest.title = "Introduction";
+        currentQuest.description = "Follow the dirt road into the giant tree. The Macaw Tribe Leader awaits you.";
+        currentQuest.sentences = new string[0];
+        currentQuest.goals = new QuestGoal[0];
+    }
 
     public void QuitGame()
     {
-        EditorApplication.isPlaying = false;
-        //Application.Quit();
+        //EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
     public void HoverButton(Button button, float size)

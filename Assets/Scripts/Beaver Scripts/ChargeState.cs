@@ -23,20 +23,32 @@ public class ChargeState : State
 
     public override State RunCurrentState()
     {
+        distanceFromPlayer = Vector3.Distance(player.transform.position, beaver.transform.position);
+        if (chargeTimer > 2f)
+        {
+            doneWithCharge = true;
+            direction = Vector3.zero;
+            playerLagPosition = Vector3.zero;
+            //GameObject.Find("Eyes").transform.localRotation = Quaternion.identity;
+            beaver.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            chargeVelocity = 0f;
+        }
+
         animator.SetBool("isCharging", true);
-        //beaver.transform.rotation = Quaternion.Lerp(beaver.transform.rotation, Quaternion.AngleAxis(targetRotation.eulerAngles.y, Vector3.up), Time.deltaTime * 10f);
+        beaver.transform.rotation = Quaternion.Lerp(beaver.transform.rotation, Quaternion.AngleAxis(targetRotation.eulerAngles.y, Vector3.up), Time.deltaTime * 10f);
 
         chargeTimer += Time.deltaTime;
         velocityWithAcceleration = 1.5f*chargeVelocity - (chargeVelocity/2f * chargeTimer);
         //chargeVelocity -= 2f * Time.deltaTime;
         beaver.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        beaver.GetComponent<Rigidbody>().AddForce(direction.normalized * velocityWithAcceleration);
+        /*beaver.GetComponent<Rigidbody>().AddForce(direction.normalized * velocityWithAcceleration);*/
 
-        if(distanceFromPlayer < 1.5f)
+        beaver.transform.position += direction.normalized * velocityWithAcceleration * Time.deltaTime;
+
+        if (distanceFromPlayer < 1.5f)
         {
             direction = Vector3.zero;
             playerLagPosition = Vector3.zero;
-            //GameObject.Find("Eyes").transform.localRotation = Quaternion.identity;
             beaver.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             chargeVelocity = 0f;
             attackState.delayTimer = 0;
@@ -45,7 +57,6 @@ public class ChargeState : State
             CameraShakeManager.Instance.ShakeCamera(5f, 0.15f);
             return attackState;
         }
-        //beaver.transform.position = Vector3.MoveTowards(beaver.transform.position, playerLagPosition, chargeVelocity * Time.deltaTime);
 
         if (doneWithCharge)
         {
@@ -73,15 +84,5 @@ public class ChargeState : State
 
     private void Update()
     {
-        distanceFromPlayer = Vector3.Distance(player.transform.position, beaver.transform.position);
-        if (chargeTimer > 2f)
-        {
-            doneWithCharge = true;
-            direction = Vector3.zero;
-            playerLagPosition = Vector3.zero;
-            //GameObject.Find("Eyes").transform.localRotation = Quaternion.identity;
-            beaver.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            chargeVelocity = 0f;
-        }
     }
 }
