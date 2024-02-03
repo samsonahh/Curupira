@@ -131,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
     void HandleGravityAndJump()
     {
         RaycastHit hit;

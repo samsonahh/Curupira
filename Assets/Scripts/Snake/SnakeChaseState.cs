@@ -30,7 +30,7 @@ public class SnakeChaseState : State
     {
         if (MainManager.Instance.canGameBePaused)
         {
-            CameraShakeManager.Instance.ShakeCamera(2f, 0.7f);
+            CameraShakeManager.Instance.ShakeCamera(1.5f, 0.7f);
             target.transform.position = player.transform.position;
         }
         else

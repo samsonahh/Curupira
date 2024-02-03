@@ -7,10 +7,9 @@ public class ColorBlind : MonoBehaviour
 {
     public static int CB;
 
-    public void Menu()
+    private void Awake()
     {
-
-        SceneManager.LoadScene("Menu");
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Normal()

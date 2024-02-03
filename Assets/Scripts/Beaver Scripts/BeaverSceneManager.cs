@@ -24,7 +24,6 @@ public class BeaverSceneManager : MonoBehaviour
             trigger.SetActive(false);
             playerHealth.SetActive(false);
             boundary.SetActive(true);
-
         }
         else
         {

@@ -68,7 +68,7 @@ public class FollowArrowScript : MonoBehaviour
             return;
         }
 
-        if (MainManager.Instance.mainQuestIndex == 5 && !MainManager.Instance.currentQuest.isQuestFullyComplete())
+        if (MainManager.Instance.mainQuestIndex == 5)
         {
             transform.localPosition = new Vector3(0, 2, 0);
             transform.LookAt(fireBoss);

@@ -9611,8 +9611,8 @@ MonoBehaviour:
   mainQuests:
   - isActive: 0
     title: The Chief's First Request
-    description: Collect branches for the baby nests Branches are located outside
-      the tree.
+    description: Collect branches outside for the baby nests. Crouch to stay quiet
+      and hide in bushes to stop its pursuit.
     sentences:
     - Hey there Wanderer!
     - "I\u2019m Ademir, leader of the Macaw Tribe."
@@ -9622,6 +9622,7 @@ MonoBehaviour:
     - We need your help to gather some materials to rebuild our homes.
     - "Let\u2019s start off with some branches for our poor babies."
     - Around the forest are fallen branches.
+    - Watch out for the snake in the area though!
     - Find and collect 3 branches and bring them back to me.
     goals:
     - goalType: 1
@@ -9700,8 +9701,8 @@ MonoBehaviour:
       currentAmount: 0
   - isActive: 0
     title: The Forest Fire
-    description: Uncover the path that leads to the forest fire. Defeat the forest
-      fire using the water from the river.
+    description: Uncover the path that leads to the forest fire. Press E to pickup
+      the bucket and F to put it down.
     sentences:
     - Thank you so much for dealing with that DAM beaver.
     - With the beaver and dam gone, we can finally have access to running water again.

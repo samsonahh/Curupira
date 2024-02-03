@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public bool isHolding;
     public bool isDumping;
     public bool isGettingUp;
+    public bool isFightingBeaver;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            if (isInteracting)
+            if (isInteracting && !isFightingBeaver)
             {
                 virtualCamera.SetActive(false);
                 Cursor.lockState = CursorLockMode.None;

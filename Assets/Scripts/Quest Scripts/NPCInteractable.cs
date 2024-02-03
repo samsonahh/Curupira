@@ -28,7 +28,7 @@ public class NPCInteractable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas.gameObject.SetActive(false);
+        nameText.gameObject.SetActive(false);
         nameText.text = gameObject.name;
     }
 
@@ -50,13 +50,13 @@ public class NPCInteractable : MonoBehaviour
     {
         if (distanceFromPlayer > 7.5f)
         {
-            canvas.gameObject.SetActive(false);
+            nameText.gameObject.SetActive(false);
             isInteractable = false;
         }
 
         if (distanceFromPlayer < 7.5f && distanceFromPlayer > 1.5f)
         {
-            canvas.gameObject.SetActive(true);
+            nameText.gameObject.SetActive(true);
             nameText.text = gameObject.name;
             isInteractable = false;
         }
