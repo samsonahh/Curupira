@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using Cinemachine;
 
 public class MainManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class MainManager : MonoBehaviour
     [Header("Settings Canvas")]
     public GameObject settingsCanvas;
     public GameObject colorBlindController;
+    public Slider sensSlider;
 
     [Header("Path Blockers")]
     public bool isBeaverBlocked = true;
@@ -71,6 +73,8 @@ public class MainManager : MonoBehaviour
         SetupPauseCanvas();
         SetupFadeCanvas();
         SetupSettingsCanvas();
+
+        Screen.SetResolution(960, 540, true, 60);
     }
 
     private void Update()
@@ -85,6 +89,7 @@ public class MainManager : MonoBehaviour
         }
 
         HandleAdminPanel();
+        AdjustMouseSensitivity();
     }
 
     void HandleAdminPanel()
@@ -302,5 +307,23 @@ public class MainManager : MonoBehaviour
     public void CloseSettings()
     {
        settingsCanvas.SetActive(false);
+    }
+
+    public void AdjustMouseSensitivity()
+    {
+        CinemachinePOV cam;
+        try
+        {
+            cam = GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachinePOV>();
+            Debug.Log("Cam found");
+        }
+        catch
+        {
+            Debug.Log("Cam not found yet");
+            return;
+        }
+        float sens = sensSlider.value * 600f;
+        cam.m_HorizontalAxis.m_MaxSpeed = sens;
+        cam.m_VerticalAxis.m_MaxSpeed = sens;
     }
 }
